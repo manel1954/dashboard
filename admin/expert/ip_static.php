@@ -8,8 +8,7 @@ session_start();
 
 
 
-$callsign = exec("sudo sed -n '1p' /etc/dhcpcd.conf");
-//$callsign = substr("$callsign", 9, 11);
+$static_ip = exec("sudo sed -n '45p' /etc/dhcpcd.conf");
 
 
 ?>
@@ -243,11 +242,11 @@ h6{
 
 
 
-<form method="post" action="cambia_configuracion_indicativo.php">
+<form method="post" action="static_ip.php">
 
-        <input name="indicativo" class="fuente_boton3 form-control" placeholder="Introduce Indicativo + Enter">
-            <div class="fondo_datos">Indicativo: 
-                <span class="color_verde"><?php echo $callsign;?></span>
+        <input name="static_ip" class="fuente_boton3 form-control" placeholder="Introduce Ip + Enter">
+            <div class="fondo_datos">Static ip: 
+                <span class="color_verde"><?php echo $static_ip;?></span>
             </div>         
 
 </form>
