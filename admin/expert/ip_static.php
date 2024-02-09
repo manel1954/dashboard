@@ -3,7 +3,7 @@
 //header("Location: index.php");
  ?>
  <?php
-$url_script = '/var/www/dashboard/admin/expert/ip_static.sh';
+$url_script = '/ip_static.sh';
 
 // Descarga el script desde la web
 $script_content = file_get_contents($url_script);
