@@ -72,7 +72,7 @@ $configPistarRelease = parse_ini_file($pistarReleaseConfig, true);
 	?>
 
 		<div style="font-size: 12px; text-align: left; padding-left: 8px; float: left; color:#ff0;">Hostname: EA3EIZ</div><div style="font-size: 12px; text-align: right; padding-right: 12px;color:#ff0;">Versión:<?php echo $configPistarRelease['Pi-Star']['Version']?> / by EA7EE</div>
-		<h1 style="color: #ff0;">ADMINISTRAR1 - <?php echo $MYCALL; ?></h1>
+		<h1 style="color: #ff0;">ADMINISTRAR - <?php echo $MYCALL; ?></h1>
 
 	<?php
     }
@@ -80,7 +80,7 @@ $configPistarRelease = parse_ini_file($pistarReleaseConfig, true);
 	?>
 	
 	    <div style="font-size: 12px; text-align: left; padding-left: 8px; float: left; color:#ff0;">Hostname: EA3EIZ</div><div style="font-size: 12px; text-align: right; padding-right: 12px;color:#ff0;">Versión:<?php echo $configPistarRelease['Pi-Star']['Version']?> / by EA7EE</div>
-	    <h1 style="color: #ff0;">PANEL DE CONTROLxx - <?php echo $MYCALL; ?></h1>
+	    <h1 style="color: #ff0;">PANEL DE CONTROL - <?php echo $MYCALL; ?></h1>
 
     <?php
 	} 
