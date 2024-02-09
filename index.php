@@ -65,7 +65,7 @@ $configPistarRelease = parse_ini_file($pistarReleaseConfig, true);
 if ( ($_SERVER["PHP_SELF"] == "/admin/index.php") && ($configPistarRelease['Pi-Star']['Version'] < 4.1) && ($configPistarRelease['Pi-Star']['Hardware'] == "RPi") ) {
 ?>
 <div>
-  <table align="center" width="960px" style="margin: 0px 0px 10px 0px; width: 100%;">
+  <table align="center" width="760px" style="margin: 0px 0px 10px 0px; width: 100%;">
     <tr>
     <td align="center" valign="top" style="background-color: #ffff90; color: #906000;">Alert: You are running an outdated version of Pi-Star, please upgrade.<br />
     New versions are available from the here: <a href="http://www.pistar.uk/downloads/" alt="Pi-Star Downloads">http://www.pistar.uk/downloads/</a>.</td>
@@ -76,7 +76,7 @@ if ( ($_SERVER["PHP_SELF"] == "/admin/index.php") && ($configPistarRelease['Pi-S
 if ( ($_SERVER["PHP_SELF"] == "/admin/index.php") && ($configPistarRelease['Pi-Star']['Version'] >= "4.1") && ($configPistarRelease['Pi-Star']['Version'] < "4.1.6") ) {
 ?>
 <div>
-  <table align="center" width="960px" style="margin: 0px 0px 10px 0px; width: 100%;">
+  <table align="center" width="760px" style="margin: 0px 0px 10px 0px; width: 100%;">
     <tr>
     <td align="center" valign="top" style="background-color: #ffff90; color: #906000;">Alert: An upgrade to Pi-Star has been released, click here to upgrade now: <a href="/admin/expert/upgrade.php" alt="Upgrade Pi-Star">Upgrade Pi-Star</a>.</td>
     </tr>
@@ -86,7 +86,7 @@ if ( ($_SERVER["PHP_SELF"] == "/admin/index.php") && ($configPistarRelease['Pi-S
 <div class="container">
 <div class="header">
 <div style="font-size: 8px; text-align: left; padding-left: 8px; float: left;">Hostname: <?php echo exec('cat /etc/hostname'); ?></div><div style="font-size: 8px; text-align: right; padding-right: 8px;">Pi-Star:<?php echo $configPistarRelease['Pi-Star']['Version']?> / <?php echo $lang['dashboard'].": ".$version; ?></div>
-<h1>Pi-Star <?php echo $lang['digital_voice']." ".$lang['dashboard_for']." ".$MYCALL; ?></h1>
+<h1>Pi-panelStar <?php echo $lang['digital_voice']." ".$lang['dashboard_for']." ".$MYCALL; ?></h1>
 <?php if (isset($piStarCssBannerH1)) { echo "<h1>".$piStarCssBannerH1."</h1>\n"; } ?>
 <?php if (isset($piStarCssBannerExtTxt)) { echo "<p style=\"text-align: center; color: #ffffff;\">".$piStarCssBannerExtTxt."</p>\n"; }?>
 <p style="padding-right: 5px; text-align: right; color: #ffffff;">
