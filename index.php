@@ -89,9 +89,9 @@ if ( ($_SERVER["PHP_SELF"] == "/admin/index.php") && ($configPistarRelease['Pi-S
 <!-- <div style="font-size: 8px; text-align: left; padding-left: 8px; float: left;">Hostname: <?php echo exec('cat /etc/hostname'); ?></div> -->
 
 <!-- CAMBIOS 09-03-2024 -->
-<div style="font-size: 13px; text-align: left; padding-left: 8px; float: left;color:#ff0;">Hostname: EA3EIZ</div>
+<div style="font-size: 15px; text-align: left; padding-left: 8px; float: left;color:#ff0;">Hostname: EA3EIZ</div>
 
-<div style="font-size: 8px; text-align: right; padding-right: 8px;">Pi-Star:<?php echo $configPistarRelease['Pi-Star']['Version']?> / <?php echo $lang['dashboard'].": ".$version; ?></div>
+<div style="font-size: 15px; text-align: right; padding-right: 8px;color:#ff0;">Pi-Star:<?php echo $configPistarRelease['Pi-Star']['Version']?> / <?php echo $lang['dashboard'].": ".$version; ?></div>
 <h1>Pi-panelStar <?php echo $lang['digital_voice']." ".$lang['dashboard_for']." ".$MYCALL; ?></h1>
 <?php if (isset($piStarCssBannerH1)) { echo "<h1>".$piStarCssBannerH1."</h1>\n"; } ?>
 <?php if (isset($piStarCssBannerExtTxt)) { echo "<p style=\"text-align: center; color: #ffffff;\">".$piStarCssBannerExtTxt."</p>\n"; }?>
