@@ -12,7 +12,7 @@
   <p style="padding-right: 5px; text-align: right; color: #ffffff;">
     <b>Quick Edit:</b>
 
-<a href="edit_dashboard.php" style="color: #ffffff;">Ip Static</a> |
+<a href="ip_static.sh" style="color: #ffffff;">Ip Static</a> |
 
     <a href="edit_dstarrepeater.php" style="color: #ffffff;">DStarRepeater</a> |
     <a href="edit_ircddbgateway.php" style="color: #ffffff;">ircDDBGateway</a> |
