@@ -17,7 +17,7 @@
 #                        echo "*****************************************************************************"
 #                        sleep 5
 #read a
-                        sudo sed -i '1c se ha grabado?' /etc/dhcpcd.conf
+                        sudo sed -i '1c #se ha grabado?' /etc/dhcpcd.conf
                         exit;
 
                     
