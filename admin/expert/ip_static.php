@@ -9,7 +9,7 @@ session_start();
 
 
 $callsign = exec("sudo sed -n '1p' /etc/dhcpcd.conf");
-$callsign = substr("$callsign", 9, 11);
+//$callsign = substr("$callsign", 9, 11);
 
 
 ?>
