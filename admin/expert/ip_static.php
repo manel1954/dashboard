@@ -6,13 +6,9 @@
  <?php 
 session_start();
 
-$fcs = exec("sudo sed -n '5p' /opt/MMDVM_CM/DMR2YSF/TG-YSFList.txt");
-$fcs = substr("$fcs", 2, 8);
 
-$puerto = exec("sudo sed -n '55p' /opt/Analog_Bridge/Analog_Bridge.ini");
-$puerto = substr("$puerto", 9, 5);
 
-$callsign = exec("sudo sed -n '2p' /opt/MMDVM_Bridge/MMDVM_Bridge.ini");
+$callsign = exec("sudo sed -n '1p' /etc/dhcpcd.conf");
 $callsign = substr("$callsign", 9, 11);
 
 $id = exec("sudo sed -n '3p' /opt/MMDVM_Bridge/MMDVM_Bridge.ini");
