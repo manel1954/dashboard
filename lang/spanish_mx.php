@@ -14,7 +14,6 @@ $lang = array (
   "admin"                       =>  "Admin",
   "power"                       =>  "Poder",
   "update"                      =>  "Actualizar",
-  "upgrade"                     =>  "Upgrade",
   "backup_restore"              =>  "Copia deseguridad_restaurar",
   "factory_reset"               =>  "Restablecimiento de fabrica",
   "live_logs"                   =>  "Vivo Logs",
@@ -28,8 +27,9 @@ $lang = array (
   "ysf_config"                  =>  "Yaesu Configuracion de sistema fusion",
   "p25_config"                  =>  "P25 Configuracion",
   "nxdn_config"                 =>  "NXDN Configuracion",
+  "m17_config"                  =>  "M17 Configuration",
   "pocsag_config"               =>  "POCSAG Configuracion",
-  "gpsd_config"            =>  "GPSd Configuration",
+  "mobilegps_config"            =>  "Mobile GPS Configuration",
   "wifi_config"                 =>  "Configuracion Inalambrico",
   "fw_config"                   =>  "Configuracion firewall",
   "remote_access_pw"            =>  "Remoto Accesso contrasena",
@@ -52,6 +52,7 @@ $lang = array (
   "ysf_mode"                    =>  "YSF Modo",
   "p25_mode"                    =>  "P25 Modo",
   "nxdn_mode"                   =>  "NXDN Modo",
+  "m17_mode"                    =>  "M17 Mode",
   "mmdvm_display"               =>  "MMDVM Tipo de muestra",
   "mode_hangtime"               =>  "Modo tiempo de suspension",
   // Config Page - General Configuration
@@ -75,8 +76,6 @@ $lang = array (
   "dmr_plus_network"            =>  "DMR+ red",
   "xlx_master"                  =>  "XLX Master",
   "xlx_enable"                  =>  "XLX Master habilitar",
-  "xlx_startup_tg"              =>  "XLX Startup TG",
-  "xlx_startup_module"          =>  "XLX Startup Module",
   "dmr_cc"                      =>  "DMR Codigo de color",
   "dmr_embeddedlconly"          =>  "DMR EmbeddedLCOnly",
   "dmr_dumptadata"              =>  "DMR DumpTAData",
@@ -96,10 +95,13 @@ $lang = array (
   // Config Page - NXDN Configuration
   "nxdn_startup_host"           =>  "NXDN Lanzamiento Host",
   "nxdn_ran"                    =>  "NXDN RAN",
-  // Config Page - GPSd Configuration
-  "gpsd_enable"            =>  "GPSd Enable",
-  "gpsd_port"              =>  "GPSd Port",
-  "gpsd_address"                =>  "GPSd Address",
+  // Config Page - M17 Configuration
+  "m17_startup_host"            =>  "M17 Startup Host",
+  "m17_can"                     =>  "M17 CAN",
+  // Config Page - MobileGPS Configuration
+  "mobilegps_enable"            =>  "MobileGPS Enable",
+  "mobilegps_port"              =>  "GPS Port",
+  "mobilegps_speed"             =>  "GPS Port Speed",
   // Config Page - Firewall Configuration
   "fw_dash"                     =>  "Tablero de acceso",
   "fw_irc"                      =>  "ircDDBGateway Remoto",
@@ -122,6 +124,8 @@ $lang = array (
   "p25_net"                     =>  "P25 red",
   "nxdn_radio"                  =>  "NXDN Radio",
   "nxdn_net"                    =>  "NXDN red",
+  "m17_radio"                   =>  "M17 Radio",
+  "m17_net"                     =>  "M17 Network",
   // Dashboard Front Page - Calls
   "time"                        =>  "Time",
   "mode"                        =>  "Modo",
@@ -133,7 +137,6 @@ $lang = array (
   "ber"                         =>  "BER",        //version corta de "Error de bit"
   // POCSAG Specific
   "pocsag_list"                 =>  "DAPNET Gateway Activity",
-  "pocsag_persolist"            =>  "DAPNET Personnal Messages",
   "pocsag_timeslot"             =>  "Time Slot",
   "pocsag_msg"                  =>  "Message",
   // Dashboard - Extra Info
@@ -143,8 +146,8 @@ $lang = array (
   "utot"                        =>  "UTOT",       //tiempo agotado para usuario
   "gtot"                        =>  "GTOT",       // tiempo agotado para grupo
   // Dashboard Front Page / Admin - Section Headders
-  "last_heard_list"             =>  "Ultimos 40 llamadas escuchadas atraves de este puerto",
-  "local_tx_list"               =>  "Ultimo 40 llamadas que accesaron este puerto",
+  "last_heard_list"             =>  "Ultimos 20 llamadas escuchadas atraves de este puerto",
+  "local_tx_list"               =>  "Ultimo 20 llamadas que accesaron este puerto",
   "active_starnet_groups"       =>  "Activo grupo Starnet Groups",
   "active_starnet_members"      =>  "Activo miembros de grupo Starnet",
   "d-star_link_manager"         =>  "D-Star gestar de enlaces",

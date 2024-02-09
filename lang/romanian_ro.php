@@ -14,7 +14,6 @@ $lang = array (
   "admin"                       =>  "Administrator",
   "power"                       =>  "Alimentare",
   "update"                      =>  "Actualizare",
-  "upgrade"                     =>  "Upgrade",
   "backup_restore"              =>  "Copie Rezerva/Restabilire",
   "factory_reset"               =>  "Resetare Stare Initiala",
   "live_logs"                   =>  "Jurnal Live",
@@ -28,8 +27,9 @@ $lang = array (
   "ysf_config"                  =>  "Configurari Yaesu System Fusion",
   "p25_config"                  =>  "Configurari P25",
   "nxdn_config"                 =>  "Configurari NXDN",
+  "m17_config"                  =>  "M17 Configuration",
   "pocsag_config"               =>  "Configurari POCSAG",
-  "gpsd_config"            =>  "Configurari GPSD",
+  "mobilegps_config"            =>  "Configurari Mobile GPS",
   "wifi_config"                 =>  "Configurari Retea Wireless",
   "fw_config"                   =>  "Configurari Firewall",
   "remote_access_pw"            =>  "Parola Acces Exterior",
@@ -52,6 +52,7 @@ $lang = array (
   "ysf_mode"                    =>  "Mod YSF",
   "p25_mode"                    =>  "Mod P25",
   "nxdn_mode"                   =>  "Mod NXDN",
+  "m17_mode"                    =>  "M17 Mode",
   "mmdvm_display"               =>  "Tip Display MMDVM",
   "mode_hangtime"               =>  "Control  Hangtime",
   // Config Page - General Configuration
@@ -75,8 +76,6 @@ $lang = array (
   "dmr_plus_network"            =>  "Retea DMR+",
   "xlx_master"                  =>  "XLX Master",
   "xlx_enable"                  =>  "Activare XLX Master",
-  "xlx_startup_tg"              =>  "XLX Startup TG",
-  "xlx_startup_module"          =>  "XLX Startup Module",
   "dmr_cc"                      =>  "Cod Culoare DMR",
   "dmr_embeddedlconly"          =>  "DMR EmbeddedLCOnly",
   "dmr_dumptadata"              =>  "DMR DumpTAData",
@@ -96,10 +95,13 @@ $lang = array (
   // Config Page - NXDN Configuration
   "nxdn_startup_host"           =>  "lansare Detinator NXDN",
   "nxdn_ran"                    =>  "Lansare NXDN",
-  // Config Page - GPSd Configuration
-  "gpsd_enable"            =>  "Activare GPSD",
-  "gpsd_port"              =>  "Port GPSD",
-  "gpsd_address"                =>  "GPSd Address",
+  // Config Page - M17 Configuration
+  "m17_startup_host"            =>  "M17 Startup Host",
+  "m17_can"                     =>  "M17 CAN",
+  // Config Page - MobileGPS Configuration
+  "mobilegps_enable"            =>  "Activare Mobile GPS",
+  "mobilegps_port"              =>  "Port GPS",
+  "mobilegps_speed"             =>  "Viteza Port GPS",
   // Config Page - Firewall Configuration
   "fw_dash"                     =>  "Acces Panou Control",
   "fw_irc"                      =>  "Control Exterior ircDDBGateway",
@@ -122,6 +124,8 @@ $lang = array (
   "p25_net"                     =>  "Reteaua P25",
   "nxdn_radio"                  =>  "NXDN Radio",
   "nxdn_net"                    =>  "Reteaua NXDN",
+  "m17_radio"                   =>  "M17 Radio",
+  "m17_net"                     =>  "M17 Network",
   // Dashboard Front Page - Calls
   "time"                        =>  "Ora",
   "mode"                        =>  "Mod",
@@ -133,7 +137,6 @@ $lang = array (
   "ber"                         =>  "BER",        // Prescurtare "Rata Eroare Biti"
   // POCSAG Specific
   "pocsag_list"                 =>  "Activitate Gateway DAPNET",
-  "pocsag_persolist"            =>  "DAPNET Personnal Messages",
   "pocsag_timeslot"             =>  "Time Slot",
   "pocsag_msg"                  =>  "Mesaj",
   // Dashboard - Extra Info
@@ -143,8 +146,8 @@ $lang = array (
   "utot"                        =>  "UTOT",       // Prescurtare  User Timeout
   "gtot"                        =>  "GTOT",       // Prescurtare Group Timeout
   // Dashboard Front Page / Admin - Section Headders
-  "last_heard_list"             =>  "Ultimele 40 Apeluri Receptionate prin acest Gateway",
-  "local_tx_list"               =>  "Ultimele 40 Apeluri care au accesat acest Gateway",
+  "last_heard_list"             =>  "Ultimele 20 Apeluri Receptionate prin acest Gateway",
+  "local_tx_list"               =>  "Ultimele 20 Apeluri care au accesat acest Gateway",
   "active_starnet_groups"       =>  "Grupuri Active Starnet",
   "active_starnet_members"      =>  "Membrii activi in Grupuri Starnet ",
   "d-star_link_manager"         =>  "D-Star Link Manager",

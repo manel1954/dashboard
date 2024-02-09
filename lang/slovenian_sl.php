@@ -14,7 +14,6 @@ $lang = array (
   "admin"                       =>  "Skrbniški način",
   "power"                       =>  "Vklop/Izklop",
   "update"                      =>  "Posodobitev",
-  "upgrade"                     =>  "Upgrade",
   "backup_restore"              =>  "Varnostno kopiranje",
   "factory_reset"               =>  "Tovarniške nastavitve",
   "live_logs"                   =>  "Dnevnik",
@@ -28,8 +27,9 @@ $lang = array (
   "ysf_config"                  =>  "Nastavitve Yaesu System Fusion",
   "p25_config"                  =>  "Nastavitve P25",
   "nxdn_config"                 =>  "Nastavitve NXDN",
+  "m17_config"                  =>  "M17 Configuration",
   "pocsag_config"               =>  "Nastavitve POCSAG",
-  "gpsd_config"            =>  "GPSd Configuration",
+  "mobilegps_config"            =>  "Mobile GPS Configuration",
   "wifi_config"                 =>  "Nastavitve brezžičnega omrežja",
   "fw_config"                   =>  "Nastavitve požarnega zidu",
   "remote_access_pw"            =>  "Geslo za oddaljeni dostop",
@@ -52,6 +52,7 @@ $lang = array (
   "ysf_mode"                    =>  "Način YSF",
   "p25_mode"                    =>  "Način P25",
   "nxdn_mode"                   =>  "Način NXDN",
+  "m17_mode"                    =>  "M17 Mode",
   "mmdvm_display"               =>  "Tip MMDVM zaslona",
   "mode_hangtime"               =>  "Obstanek načina",
   // Config Page - General Configuration
@@ -75,8 +76,6 @@ $lang = array (
   "dmr_plus_network"            =>  "DMR+ omrežje",
   "xlx_master"                  =>  "XLX Master",
   "xlx_enable"                  =>  "XLX Master Enable",
-  "xlx_startup_tg"              =>  "XLX Startup TG",
-  "xlx_startup_module"          =>  "XLX Startup Module",
   "dmr_cc"                      =>  "DMR Barvna Koda (CC)",
   "dmr_embeddedlconly"          =>  "DMR EmbeddedLCOnly",
   "dmr_dumptadata"              =>  "DMR DumpTAData",
@@ -96,10 +95,13 @@ $lang = array (
   // Config Page - NXDN Configuration
   "nxdn_startup_host"            =>  "NXDN zagonski gostitelj",
   "nxdn_ran"                     =>  "NXDN RAN",
-  // Config Page - GPSd Configuration
-  "gpsd_enable"            =>  "GPSd Enable",
-  "gpsd_port"              =>  "GPSd Port",
-  "gpsd_address"                =>  "GPSd Address",
+  // Config Page - M17 Configuration
+  "m17_startup_host"            =>  "M17 Startup Host",
+  "m17_can"                     =>  "M17 CAN",
+  // Config Page - MobileGPS Configuration
+  "mobilegps_enable"            =>  "MobileGPS Enable",
+  "mobilegps_port"              =>  "GPS Port",
+  "mobilegps_speed"             =>  "GPS Port Speed",
   // Config Page - Firewall Configuration
   "fw_dash"                     =>  "Dostop do nadzorne plošče",
   "fw_irc"                      =>  "Dostop ircDDBGateway",
@@ -122,6 +124,8 @@ $lang = array (
   "p25_net"                     =>  "Omrežje P25",
   "nxdn_radio"                  =>  "Radio NXDN",
   "nxdn_net"                    =>  "Omrežje NXDN",
+  "m17_radio"                   =>  "M17 Radio",
+  "m17_net"                     =>  "M17 Network",
   // Dashboard Front Page - Calls
   "time"                        =>  "Čas",
   "mode"                        =>  "Način",

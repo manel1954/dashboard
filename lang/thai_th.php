@@ -14,7 +14,6 @@ $lang = array (
   "admin"                       =>  "ผู้ดูแล",
   "power"                       =>  "เพาเวอร์",
   "update"                      =>  "อัพเดท",
-  "upgrade"                     =>  "Upgrade",
   "backup_restore"              =>  "สำรองข้อมูล",
   "factory_reset"               =>  "รีเซ็ต",
   "live_logs"                   =>  "ประวัติการติดต่อ (สด)",
@@ -28,8 +27,9 @@ $lang = array (
   "ysf_config"                  =>  "ตั้งค่า Yaesu System Fusion",
   "p25_config"                  =>  "ตั้งค่า P25",
   "nxdn_config"                 =>  "ตั้งค่า NXDN",
+  "m17_config"                  =>  "M17 Configuration",
   "pocsag_config"               =>  "ตั้งค่า POCSAG",
-  "gpsd_config"            =>  "GPSd Configuration",
+  "mobilegps_config"            =>  "Mobile GPS Configuration",
   "wifi_config"                 =>  "ตั้งค่าวายฟาย",
   "fw_config"                   =>  "ตั้งค่าระบบป้องกัน",
   "remote_access_pw"            =>  "ตั้งรหัสผ่าน",
@@ -52,6 +52,7 @@ $lang = array (
   "ysf_mode"                    =>  "YSF",
   "p25_mode"                    =>  "P25",
   "nxdn_mode"                   =>  "NXDN",
+  "m17_mode"                    =>  "M17 Mode",
   "mmdvm_display"               =>  "หน้าจอ MMDVM",
   "mode_hangtime"               =>  "Hangtime",
   // Config Page - General Configuration
@@ -75,8 +76,6 @@ $lang = array (
   "dmr_plus_network"            =>  "DMR+ Network",
   "xlx_master"                  =>  "XLX Master",
   "xlx_enable"                  =>  "XLX Master Enable",
-  "xlx_startup_tg"              =>  "XLX Startup TG",
-  "xlx_startup_module"          =>  "XLX Startup Module",
   "dmr_cc"                      =>  "DMR Color Code",
   "dmr_embeddedlconly"          =>  "DMR EmbeddedLCOnly",
   "dmr_dumptadata"              =>  "DMR DumpTAData",
@@ -96,10 +95,13 @@ $lang = array (
   // Config Page - NXDN Configuration
   "nxdn_startup_host"            =>  "NXDN Startup Host",
   "nxdn_ran"                     =>  "NXDN RAN",
-  // Config Page - GPSd Configuration
-  "gpsd_enable"            =>  "GPSd Enable",
-  "gpsd_port"              =>  "GPSd Port",
-  "gpsd_address"                =>  "GPSd Address",
+  // Config Page - M17 Configuration
+  "m17_startup_host"            =>  "M17 Startup Host",
+  "m17_can"                     =>  "M17 CAN",
+  // Config Page - MobileGPS Configuration
+  "mobilegps_enable"            =>  "MobileGPS Enable",
+  "mobilegps_port"              =>  "GPS Port",
+  "mobilegps_speed"             =>  "GPS Port Speed",
   // Config Page - Firewall Configuration
   "fw_dash"                     =>  "การเข้าถึงแผงควบคุม",
   "fw_irc"                      =>  "การเข้าถึง ircDDBGateway",
@@ -122,6 +124,8 @@ $lang = array (
   "p25_net"                     =>  "เครือข่าย P25",
   "nxdn_radio"                  =>  "วิทยุ NXDN",
   "nxdn_net"                    =>  "เครือข่าย NXDN",
+  "m17_radio"                   =>  "M17 Radio",
+  "m17_net"                     =>  "M17 Network",
   // Dashboard Front Page - Calls
   "time"                        =>  "เวลา",
   "mode"                        =>  "โหมด",
@@ -133,7 +137,6 @@ $lang = array (
   "ber"                         =>  "สัญญาณผิดพลาด",        // Short version of "Bit Error Rate"
   // POCSAG Specific
   "pocsag_list"                 =>  "DAPNET Gateway Activity",
-  "pocsag_persolist"            =>  "DAPNET Personnal Messages",
   "pocsag_timeslot"             =>  "Time Slot",
   "pocsag_msg"                  =>  "Message",
   // Dashboard - Extra Info

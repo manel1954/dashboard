@@ -21,14 +21,9 @@ $cpuLoad = sys_getloadavg();
 $cpuTempCRaw = exec('cat /sys/class/thermal/thermal_zone0/temp');
 if ($cpuTempCRaw > 1000) { $cpuTempC = round($cpuTempCRaw / 1000, 1); } else { $cpuTempC = round($cpuTempCRaw, 1); }
 $cpuTempF = round(+$cpuTempC * 9 / 5 + 32, 1);
-if ($cpuTempC < 50) { $cpuTempHTML = "<td style=\"background: #1d1\">".$cpuTempC."&deg;C/".$cpuTempF."&deg;F</td>\n"; }
-if ($cpuTempC >= 50) { $cpuTempHTML = "<td style=\"background: #fa0\">".$cpuTempC."&deg;C/".$cpuTempF."&deg;F</td>\n"; }
-if ($cpuTempC >= 69) { $cpuTempHTML = "<td style=\"background: #f00\">".$cpuTempC."&deg;C/".$cpuTempF."&deg;F</td>\n"; }
-
-function getServiceStatusClass($active) {
-    echo (($active) ? 'active-service-cell' : 'inactive-service-cell');
-}
-
+if ($cpuTempC < 50) { $cpuTempHTML = "<td style=\"background: #1d1\">".$cpuTempC."&deg;C / ".$cpuTempF."&deg;F</td>\n"; }
+if ($cpuTempC >= 50) { $cpuTempHTML = "<td style=\"background: #fa0\">".$cpuTempC."&deg;C / ".$cpuTempF."&deg;F</td>\n"; }
+if ($cpuTempC >= 69) { $cpuTempHTML = "<td style=\"background: #f00\">".$cpuTempC."&deg;C / ".$cpuTempF."&deg;F</td>\n"; }
 ?>
 <b><?php echo $lang['hardware_info'];?></b>
 <table style="table-layout: fixed;">
@@ -36,36 +31,34 @@ function getServiceStatusClass($active) {
     <th><a class="tooltip" href="#"><?php echo $lang['hostname'];?><br /><span><b>System IP Address:<br /><?php echo str_replace(',', ',<br />', exec('hostname -I'));?></b></span></a></th>
     <th><a class="tooltip" href="#"><?php echo $lang['kernel'];?><span><b>Release</b></span></a></th>
     <th colspan="2"><a class="tooltip" href="#"><?php echo $lang['platform'];?><span><b>Uptime:<br /><?php echo str_replace(',', ',<br />', exec('uptime -p'));?></b></span></a></th>
-    <th colspan="2"><a class="tooltip" href="#"><?php echo $lang['cpu_load'];?><span><b>CPU Load</b></span></a></th>
+    <th><a class="tooltip" href="#"><?php echo $lang['cpu_load'];?><span><b>CPU Load</b></span></a></th>
     <th><a class="tooltip" href="#"><?php echo $lang['cpu_temp'];?><span><b>CPU Temp</b></span></a></th>
   </tr>
   <tr>
     <td><?php echo php_uname('n');?></td>
     <td><?php echo php_uname('r');?></td>
-    <td colspan="2"><?php echo exec('platformDetect.sh');?></td>
-    <td colspan="2">1m:<?php echo $cpuLoad[0];?> / 5m:<?php echo $cpuLoad[1];?> / 15m:<?php echo $cpuLoad[2];?></td>
+    <td colspan="2"><?php echo exec('/usr/local/bin/platformDetect.sh');?></td>
+    <td><?php echo $cpuLoad[0];?> / <?php echo $cpuLoad[1];?> / <?php echo $cpuLoad[2];?></td>
     <?php echo $cpuTempHTML; ?>
   </tr>
   <tr>
-    <th colspan="7"><?php echo $lang['service_status'];?></th>
+    <th colspan="6"><?php echo $lang['service_status'];?></th>
   </tr>
   <tr>
-    <td class="<?php getServiceStatusClass(isProcessRunning('MMDVMHost')); ?>">MMDVMHost</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('DMRGateway')); ?>">DMRGateway</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('YSFGateway')); ?>">YSFGateway</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('YSFParrot')); ?>">YSFParrot</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('P25Gateway')); ?>">P25Gateway</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('P25Parrot')); ?>">P25Parrot</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('DAPNETGateway')); ?>">DAPNETGateway</td>
+    <td style="background: #<?php if (isProcessRunning('MMDVMHost')) { echo "1d1"; } else { echo "b55"; } ?>">MMDVMHost</td>
+    <td style="background: #<?php if (isProcessRunning('DMRGateway')) { echo "1d1"; } else { echo "b55"; } ?>">DMRGateway</td>
+    <td style="background: #<?php if (isProcessRunning('YSFGateway')) { echo "1d1"; } else { echo "b55"; } ?>">YSFGateway</td>
+    <td style="background: #<?php if (isProcessRunning('YSFParrot')) { echo "1d1"; } else { echo "b55"; } ?>">YSFParrot</td>
+    <td style="background: #<?php if (isProcessRunning('P25Gateway')) { echo "1d1"; } else { echo "b55"; } ?>">P25Gateway</td>
+    <td style="background: #<?php if (isProcessRunning('P25Parrot')) { echo "1d1"; } else { echo "b55"; } ?>">P25Parrot</td>
   </tr>
   <tr>
-    <td class="<?php getServiceStatusClass(isProcessRunning('dstarrepeaterd')); ?>">DStarRepeater</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('ircddbgatewayd')); ?>">ircDDBGateway</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('timeserverd')); ?>">TimeServer</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('/usr/local/sbin/pistar-watchdog',true)); ?>">PiStar-Watchdog</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('/usr/local/sbin/pistar-remote',true)); ?>">PiStar-Remote</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('/usr/local/sbin/pistar-keeper',true)); ?>">PiStar-Keeper</td>
-    <td class="<?php getServiceStatusClass(isProcessRunning('gpsd')); ?>">GPSd</td>
+    <td style="background: #<?php if (isProcessRunning('dstarrepeaterd')) { echo "1d1"; } else { echo "b55"; } ?>">DStarRepeater</td>
+    <td style="background: #<?php if (isProcessRunning('ircddbgatewayd')) { echo "1d1"; } else { echo "b55"; } ?>">ircDDBGateway</td>
+    <td style="background: #<?php if (isProcessRunning('timeserverd')) { echo "1d1"; } else { echo "b55"; } ?>">TimeServer</td>
+    <td style="background: #<?php if (isProcessRunning('/usr/local/sbin/pistar-watchdog',true)) { echo "1d1"; } else { echo "b55"; } ?>">PiStar-Watchdog</td>
+    <td style="background: #<?php if (isProcessRunning('/usr/local/sbin/pistar-remote',true)) { echo "1d1"; } else { echo "b55"; } ?>">PiStar-Remote</td>
+    <td style="background: #<?php if (isProcessRunning('/usr/local/sbin/pistar-keeper',true)) { echo "1d1"; } else { echo "b55"; } ?>">PiStar-Keeper</td>
   </tr>
 </table>
 <br />

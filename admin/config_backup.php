@@ -26,40 +26,24 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
     <meta name="KeyWords" content="Pi-Star" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="pragma" content="no-cache" />
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <meta http-equiv="Expires" content="0" />
     <title>Pi-Star - <?php echo $lang['digital_voice']." ".$lang['dashboard']." - ".$lang['backup_restore'];?></title>
-    <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/pistar-css.php" />
-
-
-<style type="text/css">
-  .logo{
-    text-align: center;
-	font-size: 12px;
-}
-</style>
-
+    <link rel="stylesheet" type="text/css" href="css/pistar-css.php" />
   </head>
   <body>
-      <div class="container">
-
-	  <div class="logo">
-<a href="http://ea3eiz.com/DMR" target="_blank"><img src="images/logo_ea3eiz.png" width="130" alt=""/></a>
-
-	  <div class="header">
-	  <div style="font-size: 12px; text-align: left; padding-left: 8px; float: left; color:#ff0;">Hostname: EA3EIZ</div><div style="font-size: 12px; text-align: right; padding-right: 12px;color:#ff0;">Versión:<?php echo $configPistarRelease['Pi-Star']['Version']?> / by EA7EE</div>
-	    <h1 style="color: #ff0;">COPIAR / RESTAURAR</h1>
-	      <p>
-		  <div class="navbar">
-		      <a class="menuconfig" href="/admin/configure.php"><?php echo $lang['configuration'];?></a>
-		      <a class="menuupdate" href="no_reset.php"><?php echo $lang['update'];?></a>
-		      <a class="menupower" href="/admin/power.php"><?php echo $lang['power'];?></a>
-		      <a class="menuadmin" href="/admin/"><?php echo $lang['admin'];?></a>
-		      <a class="menudashboard" href="/"><?php echo $lang['dashboard'];?></a>
-		  </div>
-	      </p>
-	  </div>
+  <div class="container">
+  <div class="header">
+  <div style="font-size: 8px; text-align: right; padding-right: 8px;">Pi-Star:<?php echo $configPistarRelease['Pi-Star']['Version']?> / <?php echo $lang['dashboard'].": ".$version; ?></div>
+  <h1>Pi-Star <?php echo $lang['digital_voice']." - ".$lang['backup_restore'];?></h1>
+  <p style="padding-right: 5px; text-align: right; color: #ffffff;">
+    <a href="/" style="color: #ffffff;"><?php echo $lang['dashboard'];?></a> |
+    <a href="/admin/" style="color: #ffffff;"><?php echo $lang['admin'];?></a> |
+    <a href="/admin/power.php" style="color: #ffffff;"><?php echo $lang['power'];?></a> |
+    <a href="/admin/update.php" style="color: #ffffff;"><?php echo $lang['update'];?></a> |
+    <a href="/admin/configure.php" style="color: #ffffff;"><?php echo $lang['configuration'];?></a>
+  </p>
+  </div>
   <div class="contentwide">
 <?php if (!empty($_POST)) {
   echo '<table width="100%">'."\n";
@@ -79,16 +63,18 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
 		  $output .= shell_exec("sudo cp /etc/dhcpcd.conf $backupDir 2>&1");
 	  }
           $output .= shell_exec("sudo cp /etc/wpa_supplicant/wpa_supplicant.conf $backupDir 2>&1");
-          $output .= shell_exec("sudo cp /etc/pistar-css.ini $backupDir 2>&1");
           $output .= shell_exec("sudo cp /etc/ircddbgateway $backupDir 2>&1");
           $output .= shell_exec("sudo cp /etc/mmdvmhost $backupDir 2>&1");
           $output .= shell_exec("sudo cp /etc/dstarrepeater $backupDir 2>&1");
 	  $output .= shell_exec("sudo cp /etc/dapnetgateway $backupDir 2>&1");
           $output .= shell_exec("sudo cp /etc/p25gateway $backupDir 2>&1");
+	  $output .= shell_exec("sudo cp /etc/m17gateway $backupDir 2>&1");
           $output .= shell_exec("sudo cp /etc/ysfgateway $backupDir 2>&1");
-	  $output .= shell_exec("sudo cp /etc/nxdngateway $backupDir 2>&1");
 	  $output .= shell_exec("sudo cp /etc/ysf2dmr $backupDir 2>&1");
+	  $output .= shell_exec("sudo cp /etc/dgidgateway $backupDir 2>&1");
+	  $output .= shell_exec("sudo cp /etc/nxdngateway $backupDir 2>&1");
 	  $output .= shell_exec("sudo cp /etc/dmrgateway $backupDir 2>&1");
+	  $output .= shell_exec("sudo cp /etc/mobilegps $backupDir 2>&1");
           $output .= shell_exec("sudo cp /etc/starnetserver $backupDir 2>&1");
           $output .= shell_exec("sudo cp /etc/timeserver $backupDir 2>&1");
           $output .= shell_exec("sudo cp /etc/dstar-radio.* $backupDir 2>&1");
@@ -97,13 +83,10 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
 	  $output .= shell_exec("sudo cp /etc/hostname $backupDir 2>&1");
 	  $output .= shell_exec("sudo cp /etc/bmapi.key $backupDir 2>&1");
 	  $output .= shell_exec("sudo cp /etc/dapnetapi.key $backupDir 2>&1");
-	  $output .= shell_exec("sudo cp /etc/default/gpsd $backupDir 2>&1");
-	  $output .= shell_exec("sudo cp /etc/tinyfilemanager-auth.php $backupDir 2>&1");
-	  $output .= shell_exec("sudo cp /etc/tinyfilemanager-config.php $backupDir 2>&1");
+	  $output .= shell_exec("sudo cp /etc/pistar-css.ini $backupDir 2>&1");
 	  $output .= shell_exec("sudo cp /usr/local/etc/RSSI.dat $backupDir 2>&1");
 	  $output .= shell_exec("sudo cp /var/www/dashboard/config/ircddblocal.php $backupDir 2>&1");
 	  $output .= shell_exec("sudo cp /var/www/dashboard/config/config.php $backupDir 2>&1");
-	  $output .= shell_exec("sudo cp /var/www/dashboard/config/language.php $backupDir 2>&1");
           $output .= "Compressing backup files\n";
           $output .= shell_exec("sudo zip -j $backupZip $backupDir/* 2>&1");
           $output .= "Starting download\n";
@@ -116,7 +99,7 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
             $local_tz = new DateTimeZone(date_default_timezone_get ());
             $dt = new DateTime($utc_time, $utc_tz);
             $dt->setTimeZone($local_tz);
-            $local_time = $dt->format('d-M-Y');
+            $local_time = $dt->format('Y-M-d');
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
 	    if ($hostNameInfo != "pi-star") {
@@ -158,23 +141,13 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
 			  }
 		  }
 	  }
-		$continue = false;
-
-		if (isset($name))
-	        {
-		    $continue = strtolower($name[1]) == 'zip' ? true : false;
-		}
-	    
+		$continue = strtolower($name[1]) == 'zip' ? true : false;
 	        if(!$continue) {
 		        $output .= "The file you are trying to upload is not a .zip file. Please try again.\n";
 	        }
-
-		if (isset($filename))
-		{
-		    $target_path = $target_dir.$filename;
-		}
-	  
-		if(isset($target_path) && move_uploaded_file($source, $target_path)) {
+		$target_path = $target_dir.$filename;
+          
+		if(move_uploaded_file($source, $target_path)) {
 			$zip = new ZipArchive();
 		        $x = $zip->open($target_path);
 		        if ($x === true) {
@@ -187,7 +160,6 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
 			
 			// Stop the DV Services
 			shell_exec('sudo systemctl stop cron.service 2>&1');		//Cron
-			shell_exec('sudo systemctl stop gpsd.service 2>&1');		//GPSd Service
 			shell_exec('sudo systemctl stop dstarrepeater.service 2>&1');	//D-Star Radio Service
 			shell_exec('sudo systemctl stop mmdvmhost.service 2>&1');	//MMDVMHost Radio Service
 			shell_exec('sudo systemctl stop ircddbgateway.service 2>&1');	//ircDDBGateway Service
@@ -197,7 +169,10 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
 			shell_exec('sudo systemctl stop ysfgateway.service 2>&1');	//YSFGateway
 			shell_exec('sudo systemctl stop ysf2dmr.service 2>&1');		//YSF2DMR
 			shell_exec('sudo systemctl stop p25gateway.service 2>&1');	//P25Gateway
+			shell_exec('sudo systemctl stop nxdngateway.service 2>&1');	//NXDNGateway
+			shell_exec('sudo systemctl stop m17gateway.service 2>&1');	//M17Gateway
 			shell_exec('sudo systemctl stop dapnetgateway.service 2>&1');	//DAPNETGateway
+			shell_exec('sudo systemctl stop mobilegps.service 2>&1');	//MobileGPS
 			
 			// Make the disk Writable
 			shell_exec('sudo mount -o remount,rw / 2>&1');
@@ -206,10 +181,8 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
 			$output .= "Writing new Config\n";
 			$output .= shell_exec("sudo rm -f /etc/dstar-radio.* 2>&1")."\n";
 			$output .= shell_exec("sudo mv -f /tmp/config_restore/RSSI.dat /usr/local/etc/ 2>&1")."\n";
-			$output .= shell_exec("sudo mv -f /tmp/config_restore/gpsd /etc/default/ 2>&1")."\n";
 			$output .= shell_exec("sudo mv -f /tmp/config_restore/ircddblocal.php /var/www/dashboard/config/ 2>&1")."\n";
 			$output .= shell_exec("sudo mv -f /tmp/config_restore/config.php /var/www/dashboard/config/ 2>&1")."\n";
-			$output .= shell_exec("sudo mv -f /tmp/config_restore/language.php /var/www/dashboard/config/ 2>&1")."\n";
 			$output .= shell_exec("sudo mv -v -f /tmp/config_restore/wpa_supplicant.conf /etc/wpa_supplicant/ 2>&1")."\n";
 			$output .= shell_exec("sudo mv -v -f /tmp/config_restore/* /etc/ 2>&1")."\n";
 			
@@ -227,7 +200,6 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
 			
 			// Start the services
 			$output .= "Starting Services.\n";
-			shell_exec('sudo systemctl start gpsd.service 2>&1');			//GPSd Service
 			shell_exec('sudo systemctl start dstarrepeater.service 2>&1');		//D-Star Radio Service
 			shell_exec('sudo systemctl start mmdvmhost.service 2>&1');		//MMDVMHost Radio Service
 			shell_exec('sudo systemctl start ircddbgateway.service 2>&1');		//ircDDBGateway Service
@@ -240,7 +212,10 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
 			shell_exec('sudo systemctl start ysfgateway.service 2>&1');		//YSFGateway
 			shell_exec('sudo systemctl start ysf2dmr.service 2>&1');		//YSF2DMR
 			shell_exec('sudo systemctl start p25gateway.service 2>&1');		//P25Gateway
+			shell_exec('sudo systemctl start nxdngateway.service 2>&1');		//NXDNGateway
+			shell_exec('sudo systemctl start m17gateway.service 2>&1');		//M17Gateway
 			shell_exec('sudo systemctl start dapnetgateway.service 2>&1');		//DAPNETGateway
+			shell_exec('sudo systemctl start mobilegps.service 2>&1');		//MobileGPS
 			shell_exec('sudo systemctl start cron.service 2>&1');			//Cron
 			
 			// Complete
@@ -263,30 +238,29 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
   <table width="100%">
   <tr>
-    <!-- <th colspan="2"><?php echo $lang['backup_restore'];?></th> -->
+    <th colspan="2"><?php echo $lang['backup_restore'];?></th>
   </tr>
   <tr>
-    <td align="center" valign="top" width="50%">Hacer Copia de Seguridad<br />
+    <td align="center" valign="top" width="50%">Download Configuration<br />
 	<button style="border: none; background: none;" name="action" value="download"><img src="/images/download.png" border="0" alt="Download Config" /></button>
     </td>
-    <td align="center" valign="top">Restaurar Copia de Seguridad<br />
+    <td align="center" valign="top">Restore Configuration<br />
 	<button style="border: none; background: none;" name="action" value="restore"><img src="/images/restore.png" border="0" alt="Restore Config" /></button><br />
     	<input type="file" name="fileToUpload" id="fileToUpload" />
     </td>
   </tr>
   <tr>
-  <td colspan="2" align="center">
-	<br />
-	<b style="color: #f00;">ADVERTENCIA:</b><br><br>
-	La edición de archivos fuera de Pi-Star * podría * tener efectos secundarios indeseables.<br />
-	<br />
-	Esta herramienta de copia de seguridad y restauración hará una copia de seguridad de sus<br /> 
-	archivos de configuración en un archivo Zip y le permitirá restaurarlos más tarde.<br />
-	<br>
-	  
-	Las contraseñas del sistema / contraseñas del dashboard NO se Copian ni se Restauran</br>
-	La configuración Wifi, se copia y se restaura</li>
-  </br></br>
+  <td colspan="2" align="justify">
+	  <br />
+	  <b>WARNING:</b><br />
+	  Editing the files outside of Pi-Star *could* have un-desireable side effects.<br />
+	  <br />
+	  This backup and restore tool, will backup your config files to a Zip file, and allow you to restore them later<br />
+	  either to this Pi-Star or another one.<br />
+	  <ul>
+		  <li>System Passwords / Dashboard passwords are NOT backed up / restored.</li>
+		  <li>Wireless Configuration IS backed up and restored</li>
+	  </ul>
   </td>
   </tr>
   </table>
@@ -296,8 +270,8 @@ if ($_SERVER["PHP_SELF"] == "/admin/config_backup.php") {
   <div class="footer">
   Pi-Star web config, &copy; Andy Taylor (MW0MWZ) 2014-<?php echo date("Y"); ?>.<br />
   Need help? Click <a style="color: #ffffff;" href="https://www.facebook.com/groups/pistarusergroup/" target="_new">here for the Support Group</a><br />
-  or Click <a style="color: #ffffff;" href="https://forum.pistar.uk/" target="_new">here to join the Support Forum</a><br />
-  <a style="color: #ff0;" href="http://www.ea3eiz.com/DMR" target="_new">Dashboard editado por EA3EIZ</a>
+  Get your copy of Pi-Star from <a style="color: #ffffff;" href="http://www.pistar.uk/downloads/" target="_blank">here</a>.<br />
+  <br />
   </div>
   </div>
   </body>

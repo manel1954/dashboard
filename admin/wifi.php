@@ -14,9 +14,9 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 <meta name="KeyWords" content="Pi-Star, MW0MWZ" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="pragma" content="no-cache" />
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <meta http-equiv="Expires" content="0" />
-<link rel="stylesheet" type="text/css" href="/css/pistar-css.php" />
+<link rel="stylesheet" type="text/css" href="css/pistar-css.php" />
 <link rel="stylesheet" type="text/css" href="wifi/styles.php" />
 <script type="text/Javascript" src="wifi/functions.js?version=1.6"></script>
 <title>Pi-Star - Digital Voice Dashboard - WiFi Config</title>
@@ -190,7 +190,7 @@ if (($strWifiFreq) && ($strWifiChan) && ($strWifiChan != "Invalid Channel")) {
 	echo "<br />\n";
 }
 if (file_exists('/etc/wpa_supplicant/wpa_supplicant.conf')) {
-        exec('grep "country" /etc/wpa_supplicant/wpa_supplicant.conf', $wifiCountryArr);
+        exec('sudo grep "country" /etc/wpa_supplicant/wpa_supplicant.conf', $wifiCountryArr);
         }
 if (isset($wifiCountryArr[0])) {
         $wifiCountry = explode("=", $wifiCountryArr[0]);
@@ -293,16 +293,16 @@ echo '<br />
 			$ssid = $_POST['ssid'.$x];
 			$psk = $_POST['psk'.$x];
 			$priority = 100 - $x;
-			if ($ssid == "*" && !$psk) { $config .= "network={\n\t#ssid=\"$ssid\"\n\t#psk=\"\"\n\tkey_mgmt=NONE\n\tid_str=\"$x\"\n\tpriority=$priority\n}\n\n"; }
-			elseif ($ssid && !$psk) { $config .= "network={\n\tssid=\"$ssid\"\n\t#psk=\"\"\n\tkey_mgmt=NONE\n\tid_str=\"$x\"\n\tpriority=$priority\n}\n\n"; }
+			if ($ssid == "*" && !$psk) { $config .= "network={\n\t#ssid=\"$ssid\"\n\t#psk=\"\"\n\tkey_mgmt=NONE\n\tid_str=\"$x\"\n\tpriority=$priority\n\tscan_ssid=1\n}\n\n"; }
+			elseif ($ssid && !$psk) { $config .= "network={\n\tssid=\"$ssid\"\n\t#psk=\"\"\n\tkey_mgmt=NONE\n\tid_str=\"$x\"\n\tpriority=$priority\n\tscan_ssid=1\n}\n\n"; }
 			elseif ($ssid && $psk) {
 				$pskSalted = hash_pbkdf2("sha1",$psk, $ssid, 4096, 64);
 				$ssidHex = bin2hex("$ssid");
-				$config .= "network={\n\t#ssid=\"$ssid\"\n\tssid=$ssidHex\n\t#psk=\"$psk\"\n\tpsk=$pskSalted\n\tid_str=\"$x\"\n\tpriority=$priority\n}\n\n";
+				$config .= "network={\n\t#ssid=\"$ssid\"\n\tssid=$ssidHex\n\t#psk=\"$psk\"\n\tpsk=$pskSalted\n\tid_str=\"$x\"\n\tpriority=$priority\n\tscan_ssid=1\n}\n\n";
 		}
 		}
 		file_put_contents('/tmp/wifidata', $config);
-		system('sudo mount -o remount,rw / && sudo cp -f /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf && sudo mount -o remount,ro /');
+		system('sudo mount -o remount,rw / && sudo cp -f /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf && sudo sync && sudo sync && sudo sync && sudo mount -o remount,ro /');
 		echo "Wifi Settings Updated Successfully\n";
 		// If Auto AP is on, dont restart the WiFi Card
 		if (!file_exists('/sys/class/net/wlan0_ap')) {

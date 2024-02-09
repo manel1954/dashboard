@@ -14,6 +14,28 @@ if ($configfile = fopen($gatewayConfigPath,'r')) {
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 $rev="20141101";
 $MYCALL=strtoupper($callsign);
+
+// Check if the config file exists
+if (file_exists('/etc/pistar-css.ini')) {
+    // Use the values from the file
+    $piStarCssFile = '/etc/pistar-css.ini';
+    if (fopen($piStarCssFile,'r')) { $piStarCss = parse_ini_file($piStarCssFile, true); }
+
+    // Set the Values from the config file
+    if (isset($piStarCss['Lookup']['Service'])) { $callsignLookupSvc = $piStarCss['Lookup']['Service']; }		// Lookup Service "QRZ" or "RadioID"
+    else { $callsignLookupSvc = "RadioID"; }										// Set the default if its missing										// Set the default if its missing
+} else {
+    // Default values
+    $callsignLookupSvc = "RadioID";
+}
+
+// Safety net
+if (($callsignLookupSvc != "RadioID") && ($callsignLookupSvc != "QRZ")) { $callsignLookupSvc = "RadioID"; }
+
+// Setup the URL(s)
+if ($callsignLookupSvc == "RadioID") { $callsignLookupUrl = "https://database.radioid.net/database/view?callsign="; }
+if ($callsignLookupSvc == "QRZ") { $callsignLookupUrl = "https://www.qrz.com/db/"; }
+
 ?>
     <b><?php echo $lang['local_tx_list'];?></b>
     <table>
@@ -52,9 +74,9 @@ $MYCALL=strtoupper($callsign);
                     $dt->setTimeZone($local_tz);
                     $local_time = $dt->format('H:i:s M jS');
                 print "<td align=\"left\">$local_time</td>";
-		print "<td align=\"left\" width=\"180\"><a href=\"http://www.qrz.com/db/$MyCallLink\" target=\"_blank\">$MyCall</a>";
-		//print "<td align=\"left\" width=\"180\"><a href=\"http://www.qrz.com/db/$MyCallLink\" data-featherlight=\"iframe\" data-featherlight-iframe-min-width=\"90%\" data-featherlight-iframe-max-width=\"90%\" data-featherlight-iframe-width=\"2000\" data-featherlight-iframe-height=\"2000\">$MyCall</a>";
-                if($MyId) { print "/".$MyId."</td>"; } else { print "</td>"; }
+		print "<td align=\"left\" width=\"180\"><div style=\"float:left;\"><a href=\"".$callsignLookupUrl.$MyCallLink."\" target=\"_blank\">$MyCall</a>";
+                if($MyId) { print "/".$MyId."</div> <div style=\"text-align:right;\">&#40;<a href=\"https://aprs.fi/#!call=".$MyCallLink."*\" target=\"_blank\">dPRS</a>&#41;</div></td>"; }
+		     else { print "</div> <div style=\"text-align:right;\">&#40;<a href=\"https://aprs.fi/#!call=".$MyCallLink."*\" target=\"_blank\">dPRS</a>&#41;</div></td>"; }
                 print "<td align=\"left\" width=\"100\">$YourCall</td>";
                 print "<td align=\"left\" width=\"100\">$Rpt1</td>";
                 print "<td align=\"left\" width=\"100\">$Rpt2</td>";

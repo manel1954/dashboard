@@ -27,78 +27,62 @@ if ($_SERVER["PHP_SELF"] == "/admin/power.php") {
     <meta name="KeyWords" content="Pi-Star" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="pragma" content="no-cache" />
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <meta http-equiv="Expires" content="0" />
     <title>Pi-Star - <?php echo $lang['digital_voice']." ".$lang['dashboard']." - ".$lang['power'];?></title>
-    <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/pistar-css.php" />
-
-    <style type="text/css">
-    .logo{
-    text-align: center;
-	  font-size: 12px;
-    }
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="css/pistar-css.php" />
   </head>
   <body>
-      <div class="container">
-
-      <div class="logo">
-      <a href="http://ea3eiz.com/DMR" target="_blank"><img src="images/logo_ea3eiz.png" width="130" alt=""/></a>
-
-
-      <div class="header">
-	  <div style="font-size: 12px; text-align: left; padding-left: 8px; float: left; color:#ff0;">Hostname: EA3EIZ</div><div style="font-size: 12px; text-align: right; padding-right: 12px;color:#ff0;">Versión:<?php echo $configPistarRelease['Pi-Star']['Version']?> / by EA7EE</div>
-    <h1 style="color: #ff0;">REINICIAR / APAGAR</h1>
-	      <p>
-		  <div class="navbar">
-		      <a class="menuconfig" href="/admin/configure.php"><?php echo $lang['configuration'];?></a>
-		      <a class="menubackup" href="/admin/config_backup.php"><?php echo $lang['backup_restore'];?></a>
-		      <a class="menuupdate" href="/admin/update.php"><?php echo $lang['update'];?></a>
-		      <a class="menuadmin" href="/admin/"><?php echo $lang['admin'];?></a>
-		      <a class="menudashboard" href="/"><?php echo $lang['dashboard'];?></a>
-		  </div>
-	      </p>
-	  </div>
+  <div class="container">
+  <div class="header">
+  <div style="font-size: 8px; text-align: right; padding-right: 8px;">Pi-Star:<?php echo $configPistarRelease['Pi-Star']['Version']?> / <?php echo $lang['dashboard'].": ".$version; ?></div>
+  <h1>Pi-Star <?php echo $lang['digital_voice']." - ".$lang['power'];?></h1>
+  <p style="padding-right: 5px; text-align: right; color: #ffffff;">
+    <a href="/" style="color: #ffffff;"><?php echo $lang['dashboard'];?></a> |
+    <a href="/admin/" style="color: #ffffff;"><?php echo $lang['admin'];?></a> |
+    <a href="/admin/update.php" style="color: #ffffff;"><?php echo $lang['update'];?></a> |
+    <a href="/admin/config_backup.php" style="color: #ffffff;"><?php echo $lang['backup_restore'];?></a> |
+    <a href="/admin/configure.php" style="color: #ffffff;"><?php echo $lang['configuration'];?></a>
+  </p>
+  </div>
   <div class="contentwide">
 <?php if (!empty($_POST)) { ?>
   <table width="100%">
   <tr><th colspan="2"><?php echo $lang['power'];?></th></tr>
   <?php
         if ( escapeshellcmd($_POST["action"]) == "reboot" ) {
-                echo '<tr><td colspan="2" style="background: #000000; color: #00ff00;"><br /><br />El comando de reinicio ha sido enviado a su Pi,
-                        <br />espere 50 segundos para que se reinicie.<br />
-                        <br />Será redirigido de nuevo al
-                        <br />Dashboard automáticamente en 50 segundos.<br /><br /><br />
+                echo '<tr><td colspan="2" style="background: #000000; color: #00ff00;"><br /><br />Reboot command has been sent to your Pi,
+                        <br />please wait up to 90 secs for it to reboot.<br />
+                        <br />You will be re-directed back to the
+                        <br />dashboard automatically in 90 seconds.<br /><br /><br />
                         <script language="JavaScript" type="text/javascript">
-                                setTimeout("location.href = \'/index.php\'",50000);
+                                setTimeout("location.href = \'/index.php\'",90000);
                         </script>
                         </td></tr>';
-                system('sudo mount -o remount,ro / > /dev/null &');
-                exec('sleep 5 && sudo shutdown -r now > /dev/null &');
+                system('sudo sync && sudo sync && sudo sync && sudo mount -o remount,ro / > /dev/null &');
+                exec('sudo reboot > /dev/null &');
                 };
         if ( escapeshellcmd($_POST["action"]) == "shutdown" ) {
-                echo '<tr><td colspan="2" style="background: #000000; color: #00ff00;"><br /><br />Se ha enviado el comando de apagado a su Pi,
-                        <br />  espere 30 segundos para que se apague por completo<br />antes de quitar la energía.<br /><br /><br /></td></tr>';
-                system('sudo mount -o remount,ro / > /dev/null &');
-                exec('sleep 5 && sudo shutdown -h now > /dev/null &');
+                echo '<tr><td colspan="2" style="background: #000000; color: #00ff00;"><br /><br />Shutdown command has been sent to your Pi,
+                        <br /> please wait 30 secs for it to fully shutdown<br />before removing the power.<br /><br /><br /></td></tr>';
+                system('sudo sync && sudo sync && sudo sync && sudo mount -o remount,ro / > /dev/null &');
+                exec('sudo shutdown -h now > /dev/null &');
                 };
   ?>
   </table>
 <?php } else { ?>
-  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="return confirm('Are you sure?');">
   <table width="100%">
   <tr>
     <th colspan="2"><?php echo $lang['power'];?></th>
   </tr>
   <tr>
     <td align="center">
-      Reiniciar Raspberry<br />
+      Reboot<br />
       <button style="border: none; background: none;" name="action" value="reboot"><img src="/images/reboot.png" border="0" alt="Reboot" /></button>
     </td>
     <td align="center">
-      Apagar Raspberry<br />
+      Shutdown<br />
       <button style="border: none; background: none;" name="action" value="shutdown"><img src="/images/shutdown.png" border="0" alt="Shutdown" /></button>
     </td>
   </tr>
@@ -109,8 +93,8 @@ if ($_SERVER["PHP_SELF"] == "/admin/power.php") {
   <div class="footer">
   Pi-Star web config, &copy; Andy Taylor (MW0MWZ) 2014-<?php echo date("Y"); ?>.<br />
   Need help? Click <a style="color: #ffffff;" href="https://www.facebook.com/groups/pistarusergroup/" target="_new">here for the Support Group</a><br />
-  or Click <a style="color: #ffffff;" href="https://forum.pistar.uk/" target="_new">here to join the Support Forum</a><br />
-  <a style="color: #ff0;" href="http://www.ea3eiz.com/DMR" target="_new">Dashboard editado por EA3EIZ</a>
+  Get your copy of Pi-Star from <a style="color: #ffffff;" href="http://www.pistar.uk/downloads/" target="_blank">here</a>.<br />
+  <br />
   </div>
   </div>
   </body>

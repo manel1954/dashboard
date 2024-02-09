@@ -9,13 +9,19 @@ $configPistarRelease = parse_ini_file($pistarReleaseConfig, true);
 require_once('../config/version.php');
 
 // Sanity Check that this file has been opened correctly
-if ($_SERVER["PHP_SELF"] == "/admin/expert/upgrade.php") {
+if ($_SERVER["PHP_SELF"] == "/admin/expert/jitter_test.php") {
+
+  if (isset($_GET['group'])) {
+    if ($_GET['group'] == "brandmeister") { $target = "BM"; }
+    if ($_GET['group'] == "dmrplus")      { $target = "DMR+"; }
+    if ($_GET['group'] == "hblink")       { $target = "HB"; }
+  } else { $target = "DMR+"; }
 
   if (!isset($_GET['ajax'])) {
-    system('sudo touch /var/log/pi-star/pi-star_upgrade.log > /dev/null 2>&1 &');
-    system('sudo echo "" > /var/log/pi-star/pi-star_upgrade.log > /dev/null 2>&1 &');
-    system('sudo /usr/local/sbin/pistar-upgrade > /dev/null 2>&1 &');
-    }
+    system('sudo touch /var/log/pi-star/pi-star_icmptest.log > /dev/null 2>&1 &');
+    system('sudo echo "" > /var/log/pi-star/pi-star_icmptest.log > /dev/null 2>&1 &');
+    system('sudo /usr/local/sbin/pistar-jittertest '.$target.' > /dev/null 2>&1 &');
+  }
 
   // Sanity Check Passed.
   header('Cache-Control: no-cache');
@@ -23,35 +29,35 @@ if ($_SERVER["PHP_SELF"] == "/admin/expert/upgrade.php") {
 
   if (!isset($_GET['ajax'])) {
     //unset($_SESSION['update_offset']);
-    if (file_exists('/var/log/pi-star/pi-star_upgrade.log')) {
-      $_SESSION['update_offset'] = filesize('/var/log/pi-star/pi-star_upgrade.log');
+    if (file_exists('/var/log/pi-star/pi-star_icmptest.log')) {
+      $_SESSION['update_offset'] = filesize('/var/log/pi-star/pi-star_icmptest.log');
     } else {
       $_SESSION['update_offset'] = 0;
     }
   }
-  
+
   if (isset($_GET['ajax'])) {
     //session_start();
-    if (!file_exists('/var/log/pi-star/pi-star_upgrade.log')) {
+    if (!file_exists('/var/log/pi-star/pi-star_icmptest.log')) {
       exit();
     }
-    
-    $handle = fopen('/var/log/pi-star/pi-star_upgrade.log', 'rb');
+
+    $handle = fopen('/var/log/pi-star/pi-star_icmptest.log', 'rb');
     if (isset($_SESSION['update_offset'])) {
       fseek($handle, 0, SEEK_END);
       if ($_SESSION['update_offset'] > ftell($handle)) //log rotated/truncated
         $_SESSION['update_offset'] = 0; //continue at beginning of the new log
       $data = stream_get_contents($handle, -1, $_SESSION['update_offset']);
       $_SESSION['update_offset'] += strlen($data);
-      echo nl2br($data);
+      echo "<pre>$data</pre>";
       }
     else {
       fseek($handle, 0, SEEK_END);
       $_SESSION['update_offset'] = ftell($handle);
-      } 
+      }
   exit();
   }
-  
+
 ?>
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -66,7 +72,7 @@ if ($_SERVER["PHP_SELF"] == "/admin/expert/upgrade.php") {
     <meta name="KeyWords" content="Pi-Star" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="pragma" content="no-cache" />
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <meta http-equiv="Expires" content="0" />
     <title>Pi-Star - <?php echo $lang['digital_voice']." ".$lang['dashboard']." - ".$lang['update'];?></title>
     <link rel="stylesheet" type="text/css" href="../css/pistar-css.php" />
@@ -75,7 +81,7 @@ if ($_SERVER["PHP_SELF"] == "/admin/expert/upgrade.php") {
     <script type="text/javascript">
     $(function() {
       $.repeat(1000, function() {
-        $.get('/admin/expert/upgrade.php?ajax', function(data) {
+        $.get('/admin/expert/jitter_test.php?ajax', function(data) {
           if (data.length < 1) return;
           var objDiv = document.getElementById("tail");
           var isScrolledToBottom = objDiv.scrollHeight - objDiv.clientHeight <= objDiv.scrollTop + 1;
@@ -92,8 +98,8 @@ if ($_SERVER["PHP_SELF"] == "/admin/expert/upgrade.php") {
   <?php include './header-menu.inc'; ?>
   <div class="contentwide">
   <table width="100%">
-  <tr><th>Upgrade Running</th></tr>
-  <tr><td align="left"><div id="tail">Starting upgrade, please wait...<br /></div></td></tr>
+  <tr><th>Test Running</th></tr>
+  <tr><td align="left"><div id="tail">Starting test, please wait...<br /></div></td></tr>
   </table>
   </div>
   <div class="footer">

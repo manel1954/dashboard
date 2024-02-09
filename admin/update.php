@@ -15,10 +15,15 @@ setlocale(LC_ALL, "LC_CTYPE=en_GB.UTF-8;LC_NUMERIC=C;LC_TIME=C;LC_COLLATE=C;LC_M
 if ($_SERVER["PHP_SELF"] == "/admin/update.php") {
 
   if (!isset($_GET['ajax'])) {
+    if (!file_exists('/var/log/pi-star')) {
+      system('sudo mkdir -p /var/log/pi-star/');
+      system('sudo chmod 775 /var/log/pi-star/');
+      system('sudo chown root:mmdvm /var/log/pi-star/');
+    }
     system('sudo touch /var/log/pi-star/pi-star_update.log > /dev/null 2>&1 &');
     system('sudo echo "" > /var/log/pi-star/pi-star_update.log > /dev/null 2>&1 &');
     system('sudo /usr/local/sbin/pistar-update > /dev/null 2>&1 &');
-    }
+  }
 
   // Sanity Check Passed.
   header('Cache-Control: no-cache');
@@ -69,12 +74,11 @@ if ($_SERVER["PHP_SELF"] == "/admin/update.php") {
     <meta name="KeyWords" content="Pi-Star" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="pragma" content="no-cache" />
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <meta http-equiv="Expires" content="0" />
     <title>Pi-Star - <?php echo $lang['digital_voice']." ".$lang['dashboard']." - ".$lang['update'];?></title>
-    <link rel="stylesheet" type="text/css" href="/css/pistar-css.php" />
-    <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <script type="text/javascript" src="/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/pistar-css.php" />
+    <script type="text/javascript" src="/jquery.min.js"></script>
     <script type="text/javascript" src="/jquery-timing.min.js"></script>
     <script type="text/javascript">
     $(function() {
@@ -90,49 +94,31 @@ if ($_SERVER["PHP_SELF"] == "/admin/update.php") {
       });
     });
     </script>
-
-<style type="text/css">
-    .logo{
-    text-align: center;
-	  font-size: 12px;
-    }
-    </style>	
-
   </head>
   <body>
   <div class="container">
-      <br>
-
-	 	  <div class="logo">
-<a href="http://ea3eiz.com/DMR" target="_blank"><img src="images/logo_ea3eiz.png" width="130" alt=""/></a>
-
-</div>
-<br>
-	<div class="header">
-
-	<div style="font-size: 12px; text-align: left; padding-left: 8px; float: left; color:#ff0;">Hostname: EA3EIZ</div><div style="font-size: 12px; text-align: right; padding-right: 12px;color:#ff0;">Versión:<?php echo $configPistarRelease['Pi-Star']['Version']?> / by EA7EE</div>
-	      <h1 style="color: #ff0;">ACTUALIZANDO</h1>
-	      <p>
-		  <div class="navbar">
-		      <a class="menuconfig" href="/admin/configure.php"><?php echo $lang['configuration'];?></a>
-		      <a class="menubackup" href="/admin/config_backup.php"><?php echo $lang['backup_restore'];?></a>
-		      <a class="menupower" href="/admin/power.php"><?php echo $lang['power'];?></a>
-		      <a class="menuadmin" href="/admin/"><?php echo $lang['admin'];?></a>
-		      <a class="menudashboard" href="/"><?php echo $lang['dashboard'];?></a>
-		  </div>
-	      </p>
-	  </div>
+  <div class="header">
+  <div style="font-size: 8px; text-align: right; padding-right: 8px;">Pi-Star:<?php echo $configPistarRelease['Pi-Star']['Version']?> / Dashboard:<?php echo $version; ?></div>
+  <h1>Pi-Star - <?php echo $lang['digital_voice']." ".$lang['dashboard']." - ".$lang['update'];?></h1>
+  <p style="padding-right: 5px; text-align: right; color: #ffffff;">
+    <a href="/" style="color: #ffffff;"><?php echo $lang['dashboard'];?></a> |
+    <a href="/admin/" style="color: #ffffff;"><?php echo $lang['admin'];?></a> |
+    <a href="/admin/power.php" style="color: #ffffff;"><?php echo $lang['power'];?></a> |
+    <a href="/admin/config_backup.php" style="color: #ffffff;"><?php echo $lang['backup_restore'];?></a> |
+    <a href="/admin/configure.php" style="color: #ffffff;"><?php echo $lang['configuration'];?></a>
+  </p>
+  </div>
   <div class="contentwide">
   <table width="100%">
-  <tr><th>Se está realizando la actualización</th></tr>
+  <tr><th>Update Running</th></tr>
   <tr><td align="left"><div id="tail">Starting update, please wait...<br /></div></td></tr>
   </table>
   </div>
   <div class="footer">
-Pi-Star web config, &copy; Andy Taylor (MW0MWZ) 2014-<?php echo date("Y"); ?>.<br />
-Need help? Click <a style="color: #ffffff;" href="https://www.facebook.com/groups/pistarusergroup/" target="_new">here for the Support Group</a><br />
-or Click <a style="color: #ffffff;" href="https://forum.pistar.uk/" target="_new">here to join the Support Forum</a><br />
-<a style="color: #ff0;" href="http://www.ea3eiz.com/DMR" target="_new">Dashboard editado por EA3EIZ</a>
+  Pi-Star web config, &copy; Andy Taylor (MW0MWZ) 2014-<?php echo date("Y"); ?>.<br />
+  Need help? Click <a style="color: #ffffff;" href="https://www.facebook.com/groups/pistarusergroup/" target="_new">here for the Support Group</a><br />
+  Get your copy of Pi-Star from <a style="color: #ffffff;" href="http://www.pistar.uk/downloads/" target="_blank">here</a>.<br />
+  <br />
   </div>
   </div>
   </body>

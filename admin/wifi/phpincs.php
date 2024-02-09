@@ -17,7 +17,6 @@ function ParseConfig($arrConfig) {
 }
 
 function ConvertToChannel($freq) {
-	if ($freq < 100) { $freq = $freq * 10; }
 	$wifiFreqToChan = array (
 		"2412" => "2.4GHz Ch1",
 		"2417" => "2.4GHz Ch2",

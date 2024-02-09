@@ -32,9 +32,8 @@ if ($_SERVER["PHP_SELF"] == "/admin/expert/ssh_access.php") {
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <meta http-equiv="Expires" content="0" />
     <title>Pi-Star - <?php echo $lang['digital_voice']." ".$lang['dashboard']." - SSH";?></title>
-    <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/pistar-css.php" />
-    <script type="text/javascript" src="/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/pistar-css.php" />
+    <script type="text/javascript" src="/jquery.min.js"></script>
     <script type="text/javascript" src="/jquery-timing.min.js"></script>
   </head>
   <body>
@@ -57,7 +56,8 @@ if ($_SERVER["PHP_SELF"] == "/admin/expert/ssh_access.php") {
   <div class="footer">
   Pi-Star web config, &copy; Andy Taylor (MW0MWZ) 2014-<?php echo date("Y"); ?>.<br />
   Need help? Click <a style="color: #ffffff;" href="https://www.facebook.com/groups/pistarusergroup/" target="_new">here for the Support Group</a><br />
-  or Click <a style="color: #ffffff;" href="https://forum.pistar.uk/" target="_new">here to join the Support Forum</a><br />
+  Get your copy of Pi-Star from <a style="color: #ffffff;" href="http://www.pistar.uk/downloads/" target="_blank">here</a>.<br />
+  <br />
   </div>
   </div>
   </body>

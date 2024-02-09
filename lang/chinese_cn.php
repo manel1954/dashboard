@@ -15,7 +15,6 @@ $lang = array (
   "admin"                       =>  "管理",
   "power"                       =>  "电源",
   "update"                      =>  "更新",
-  "upgrade"                     =>  "Upgrade",
   "backup_restore"              =>  "备份/恢复",
   "factory_reset"               =>  "恢复出厂设置",
   "live_logs"                   =>  "日志",
@@ -29,8 +28,9 @@ $lang = array (
   "ysf_config"                  =>  "Yaesu System Fusion 配置",
   "p25_config"                  =>  "P25 配置",
   "nxdn_config"                 =>  "NXDN 配置",
+  "m17_config"                  =>  "M17 Configuration",
   "pocsag_config"               =>  "POCSAG 配置",
-  "gpsd_config"            =>  "GPSd Configuration",
+  "mobilegps_config"            =>  "Mobile GPS Configuration",
   "fw_config"                   =>  "防火墙配置",
   "remote_access_pw"            =>  "远程访问密码",
   // Config Page - Section General
@@ -52,6 +52,7 @@ $lang = array (
   "ysf_mode"                    =>  "YSF 模式",
   "p25_mode"                    =>  "P25 模式",
   "nxdn_mode"                   =>  "NXDN 模式",
+  "m17_mode"                    =>  "M17 Mode",
   "mmdvm_display"               =>  "MMDVM 显示屏类型",
   "mode_hangtime"               =>  "模式停留时间",
   // Config Page - General Configuration
@@ -75,8 +76,6 @@ $lang = array (
   "dmr_plus_network"            =>  "DMR+ 网络",
   "xlx_master"                  =>  "XLX 主机 ",
   "xlx_enable"                  =>  "XLX 主机启用",
-  "xlx_startup_tg"              =>  "XLX Startup TG",
-  "xlx_startup_module"          =>  "XLX Startup Module",
   "dmr_cc"                      =>  "DMR 彩色码",
   "dmr_embeddedlconly"          =>  "DMR EmbeddedLCOnly",
   "dmr_dumptadata"              =>  "DMR DumpTAData",
@@ -96,10 +95,13 @@ $lang = array (
   // Config Page - NXDN Configuration
   "nxdn_startup_host"            =>  "NXDN 默认服务器",
   "nxdn_ran"                     =>  "NXDN RAN",
-  // Config Page - GPSd Configuration
-  "gpsd_enable"            =>  "GPSd Enable",
-  "gpsd_port"              =>  "GPSd Port",
-  "gpsd_address"                =>  "GPSd Address",
+  // Config Page - M17 Configuration
+  "m17_startup_host"            =>  "M17 Startup Host",
+  "m17_can"                     =>  "M17 CAN",
+  // Config Page - MobileGPS Configuration
+  "mobilegps_enable"            =>  "MobileGPS Enable",
+  "mobilegps_port"              =>  "GPS Port",
+  "mobilegps_speed"             =>  "GPS Port Speed",
   // Config Page - Firewall Configuration
   "fw_dash"                     =>  "仪表盘访问",
   "fw_irc"                      =>  "ircDDBGateway 远程",
@@ -122,6 +124,8 @@ $lang = array (
   "p25_net"                     =>  "P25 网络",
   "nxdn_radio"                  =>  "NXDN 电台",
   "nxdn_net"                    =>  "NXDN 网络",
+  "m17_radio"                   =>  "M17 Radio",
+  "m17_net"                     =>  "M17 Network",
   // Dashboard Front Page - Calls
   "time"                        =>  "时间",
   "mode"                        =>  "模式",
@@ -133,7 +137,6 @@ $lang = array (
   "ber"                         =>  "误码率",    // Short version of "Bit Error Rate"
   // POCSAG Specific
   "pocsag_list"                 =>  "DAPNET Gateway Activity",
-  "pocsag_persolist"            =>  "DAPNET Personnal Messages",
   "pocsag_timeslot"             =>  "Time Slot",
   "pocsag_msg"                  =>  "Message",
   // Dashboard - Extra Info
@@ -143,8 +146,8 @@ $lang = array (
   "utot"                        =>  "用户超时",     // Short for User Timeout
   "gtot"                        =>  "组超时",       // Short for Group Timeout
   // Dashboard Front Page / Admin - Section Headders
-  "last_heard_list"             =>  "网关上最后 40 个呼叫",
-  "local_tx_list"               =>  "最后 40 个本地呼叫",
+  "last_heard_list"             =>  "网关上最后 20 个呼叫",
+  "local_tx_list"               =>  "最后 20 个本地呼叫",
   "active_starnet_groups"       =>  "激活的 Starnet 组",
   "active_starnet_members"      =>  "激活的 Starnet 组成员",
   "d-star_link_manager"         =>  "D-Star 连接管理器",
