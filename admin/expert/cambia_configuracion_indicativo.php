@@ -5,7 +5,7 @@ $_SESSION["indicativo"]=$indicativo;
 
 //$indicativo = substr("$indicativo", 9, 11);
 
-exec("sudo sed -i '1c Callsign=$indicativo' /etc/dhcpcd.conf");
+exec("sudo sed -i '1c $indicativo' /etc/dhcpcd.conf");
 
 
 
