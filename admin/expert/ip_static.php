@@ -284,7 +284,7 @@ h6{
 </form>
 
 
-<form method="post" action="/dvs/config/cambia_configuracion_indicativo.php">
+<form method="post" action="cambia_configuracion_indicativo.php">
 
         <input name="indicativo" class="fuente_boton3 form-control" placeholder="Introduce Indicativo + Enter">
             <div class="fondo_datos">Indicativo: 
