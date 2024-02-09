@@ -14,5 +14,9 @@ $static_ip="static ip_address=" . $ip . "/24";
 exec("sudo sed -i '44c interface eth0' /etc/dhcpcd.conf");
 
 exec("sudo sed -i '45c $static_ip' /etc/dhcpcd.conf");
+
+//esta linea escribe simplemente static router
+exec("sudo sed -i '47c static routers=$ip' /etc/dhcpcd.conf");
+
 header("Location:index.php");	
 ?>
