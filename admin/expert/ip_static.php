@@ -11,29 +11,6 @@ session_start();
 $callsign = exec("sudo sed -n '1p' /etc/dhcpcd.conf");
 $callsign = substr("$callsign", 9, 11);
 
-$id = exec("sudo sed -n '3p' /opt/MMDVM_Bridge/MMDVM_Bridge.ini");
-$id = substr("$id", 3, 9);
-
-$frecuencia = exec("sudo sed -n '8p' /opt/MMDVM_Bridge/MMDVM_Bridge.ini");
-$frecuencia = substr("$frecuencia", 12, 9);
-
-$latitude = exec("sudo sed -n '11p' /opt/MMDVM_Bridge/MMDVM_Bridge.ini");
-$latitude = substr("$latitude", 9, 10);
-
-$longitude = exec("sudo sed -n '12p' /opt/MMDVM_Bridge/MMDVM_Bridge.ini");
-$longitude = substr("$longitude", 10, 10);
-
-$longitude = exec("sudo sed -n '12p' /opt/MMDVM_Bridge/MMDVM_Bridge.ini");
-$longitude = substr("$longitude", 10, 10);
-
-$location = exec("sudo sed -n '14p' /opt/MMDVM_Bridge/MMDVM_Bridge.ini");
-$location = substr("$location", 9, 25);
-
-$url = exec("sudo sed -n '16p' /opt/MMDVM_Bridge/MMDVM_Bridge.ini");
-$url = substr("$url", 4, 25);
-
-$reflector_dstar = exec("sudo sed -n '18p' /etc/ircddbgateway");
-$reflector_dstar = substr("$reflector_dstar", 11, 10);
 
 ?>
 <!DOCTYPE html>
@@ -263,21 +240,7 @@ h6{
     <div class="col-md-4 config_especial"><br>     
         <h5>CONFIGURACIÓN GENERAL</h5>
 
-<form method="post" action="/dvs/config/cambia_sala_FCS.php">
-<input name="fcs" class="fuente_boton3 form-control" placeholder="Introduce Sala FCS ej:FCS0065 + Enter">
-    <div class="fondo_datos">Sala FCS:  
-        <span class="color_verde"><?php echo $fcs;?></span>
-    </div>         
-</form>
 
-
-
-<form method="post" action="/dvs/config/cambia_puerto.php">
-<input name="puerto" class="fuente_boton3 form-control" placeholder="Introduce Puerto USRP + Enter">
-    <div class="fondo_datos">Puerto USRP: 
-        <span class="color_verde"><?php echo $puerto;?></span>
-    </div>         
-</form>
 
 
 <form method="post" action="cambia_configuracion_indicativo.php">
@@ -289,54 +252,19 @@ h6{
 
 </form>
 
-<form method="post" action="/dvs/config/cambia_configuracion_id.php">
-        <input name="id" class="fuente_boton3 form-control" placeholder="Introduce Id de 9 Dígitos + Enter"> 
-            <div class="fondo_datos">Id: 
-                <span class="color_verde"><?php echo $id;?></span>
-            </div> 
-</form>
 
-<form method="post" action="/dvs/config/cambia_configuracion_frecuencia.php">
-        <input name="frecuencia" class="fuente_boton3 form-control" placeholder="Introduce Frecuencia 9 dígitos sin puntos + Enter"> 
-            <div class="fondo_datos">Frecuencia RXF-TXF: 
-                <span class="color_verde"><?php echo $frecuencia;?></span>
-            </div> 
-</form>
 
-<form method="post" action="index.php">
-        <input name="latitude" class="fuente_boton3 form-control" placeholder="Introduce Latitude  + Enter"> 
-            <div class="fondo_datos">Latitude: 
-                <span class="color_verde"><?php echo $latitude;?></span>
-            </div> 
-</form>
 
-<form method="post" action="/dvs/config/cambia_configuracion_longitud.php">
-        <input name="longitude" class="fuente_boton3 form-control" placeholder="Introduce Longitude  + Enter"> 
-            <div class="fondo_datos">Longitude: 
-                <span class="color_verde"><?php echo $longitude;?></span>
-            </div> 
-</form>
 
-<form method="post" action="/dvs/config/cambia_configuracion_location.php">
-        <input name="location" class="fuente_boton3 form-control" placeholder="Introduce Ciudad  + Enter"> 
-            <div class="fondo_datos">Ciudad: 
-                <span class="color_verde"><?php echo $location;?></span>
-            </div> 
-</form>
 
-<form method="post" action="/dvs/config/cambia_configuracion_url.php">
-        <input name="url" class="fuente_boton3 form-control" placeholder="Introduce Web preferida  + Enter"> 
-            <div class="fondo_datos">URL: 
-                <span class="color_verde"><?php echo $url;?></span>
-            </div> 
-</form>
 
-<form method="post" action="/dvs/config/cambia_reflector_dstar.php">
-        <input name="reflector_dstar" class="fuente_boton3 form-control" placeholder="Introduce Reflector Dstar ej: DCS018 Y  + Enter"> 
-            <div class="fondo_datos">REFLECTOR DSTAR: 
-                <span class="color_verde"><?php echo $reflector_dstar;?></span>
-            </div> 
-</form>
+
+
+
+
+
+
+
 
 <br>
 <form method="post" action="../../index.php">
