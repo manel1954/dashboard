@@ -5,7 +5,7 @@ $ip=($_POST["static_ip"]);
 
 
 
-$_SESSION["static_ip"]=$static_ip;
+//$_SESSION["static_ip"]=$static_ip;
 
 $static_ip="static ip_address=" . $ip . "/24";
 
