@@ -10,6 +10,6 @@ exec("sudo sed -i '1c Callsign=$indicativo' /etc/dhcpcd.conf");
 
 
 
-header("Location:/dvs/config/editor_general.php");	
+header("Location:index.php");	
 
 ?>
