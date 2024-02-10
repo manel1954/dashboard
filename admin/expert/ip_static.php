@@ -34,7 +34,7 @@ background:#000;
     height: 35px;
     font-size: 15px;
     border-radius: 5px;
-    border:transparent;
+    border:1px transparent;
     }
 h5{
     text-align:center;
