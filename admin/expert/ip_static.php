@@ -237,7 +237,7 @@ h6{
 <!--============== CAJA LOGIN ====================================-->      
  <div class="row">
     <div class="col-md-4 config_especial"><br>     
-        <h5>CONFIGURACIÓN GENERAL</h5>
+        <h5>CONFIGURACIÓN IP FIJA</h5>
 
 
 
@@ -250,7 +250,7 @@ h6{
             </div>         
 </form>
 
-<form method="post" action="static_ip.php">
+<form method="post" action="router_ip.php">
 
         <input name="ip_router" class="fuente_boton3 form-control" placeholder="Introduce Ip Router + Enter">
             <div class="fondo_datos">ip del Router: 
