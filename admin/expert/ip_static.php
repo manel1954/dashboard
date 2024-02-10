@@ -57,7 +57,7 @@ h5{
     border: 1px solid #ccc;
 }
 .form-control {
-    width: 798px;
+    width: 796px;
     height: 25px;
     text-align: center;
     font-size: 16px;
