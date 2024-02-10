@@ -57,7 +57,7 @@ h5{
     border: 1px solid #ccc;
 }
 .form-control {
-    width: 800px;
+    width: 798px;
     height: 25px;
     text-align: center;
     font-size: 16px;
@@ -80,7 +80,7 @@ h5{
 <div class="text_center">
 <form method="post" action="static_ip.php">
 
-        <input name="ip_statica" class="fuente_boton3 form-control" placeholder="Introduce Ip fija+ Enter">
+        <input name="ip_statica" class="fuente_boton3 form-control" placeholder="Introduce Ip fija + Enter">
             <div class="fondo_datos">Static ip: 
                 <span class="color_verde"><?php echo $static_ip;?></span>
             </div>         
@@ -88,7 +88,7 @@ h5{
 
 <form method="post" action="router_ip.php">
 
-        <input name="ip_router" class="fuente_boton3 form-control" placeholder="Introduce ip Router + Enter">
+        <input name="ip_router" class="fuente_boton3 form-control" placeholder="Introduce ip del Router  + Enter">
             <div class="fondo_datos">ip del Router: 
                 <span class="color_verde"><?php echo $ip_router;?></span>
             </div>         
