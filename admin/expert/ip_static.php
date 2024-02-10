@@ -68,8 +68,7 @@ h5{
 <div class="container"> 
 <br><br><br>
 <!--============== CAJA LOGIN ====================================-->      
- <div class="row">
-    <div class="col-md-4 config_especial"><br>     
+    
         <h5>CONFIGURACIÓN IP FIJA</h5>
 
 
@@ -110,24 +109,9 @@ h5{
     <button class="btn btn-success btn-sm btn-block" type="submit">VOLVER AL DASHBOARD</button>
 </form>
 <br>
-   </div><!-- "col-md-4 -->
-</div><!-- row -->
+
 
 <!--============== FIN CAJA LOGIN ====================== -->
-
-
-
 </div><!-- container -->
-
-    
-<?php
-//}else {
-//header('Location:/dvs/index.php');    
-//}
-?>
-    <!-- jQuery -->
-
- 
-
 </body>
 </html>
