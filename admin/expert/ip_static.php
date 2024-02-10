@@ -41,7 +41,7 @@ h5{
 .fondo_datos{
     margin-top: 1px;
     margin-bottom: 7px;
-    width: 80px;
+    width: 800px;
     height: 25px;
     text-align:center;
     padding: 0px 0px 0px 0px;
