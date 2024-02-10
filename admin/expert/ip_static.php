@@ -46,7 +46,7 @@ h5{
 .fondo_datos{
     margin-top: 1px;
     margin-bottom: 7px;
-    width: 600px;
+    width: 400px;
     height: 25px;
     text-align:center;
     padding: 0px 0px 0px 0px;
@@ -57,7 +57,7 @@ h5{
     border: 1px solid #ccc;
 }
 .form-control {
-    width: 796px;
+    width: 396px;
     height: 25px;
     text-align: center;
     font-size: 16px;
