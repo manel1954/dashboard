@@ -9,7 +9,7 @@ session_start();
 
 
 $static_ip = exec("sudo sed -n '45p' /etc/dhcpcd.conf");
-
+$ip_router = exec("sudo sed -n '47p' /etc/dhcpcd.conf");
 
 ?>
 <!DOCTYPE html>
@@ -248,7 +248,14 @@ h6{
             <div class="fondo_datos">Static ip: 
                 <span class="color_verde"><?php echo $static_ip;?></span>
             </div>         
+</form>
 
+<form method="post" action="ip_router.php">
+
+        <input name="ip_router" class="fuente_boton3 form-control" placeholder="Introduce Ip Router + Enter">
+            <div class="fondo_datos">ip del Router: 
+                <span class="color_verde"><?php echo $ip_router;?></span>
+            </div>         
 </form>
 
 
