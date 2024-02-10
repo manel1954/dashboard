@@ -41,7 +41,7 @@ h5{
 .fondo_datos{
     margin-top: 1px;
     margin-bottom: 7px;
-    width: 100%;
+    width: 80px;
     height: 25px;
     text-align:center;
     padding: 0px 0px 0px 0px;
@@ -60,19 +60,10 @@ h5{
 </head>
 <body>
 
-
-
-    <!-- Navigation -->
-
-
-
 <br><br><br>
 <!--============== CAJA LOGIN ====================================-->      
     
         <h5>CONFIGURACIÓN IP FIJA</h5>
-
-
-
 
 <form method="post" action="static_ip.php">
 
@@ -89,20 +80,6 @@ h5{
                 <span class="color_verde"><?php echo $ip_router;?></span>
             </div>         
 </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <br>
 <form method="post" action="../../index.php">
