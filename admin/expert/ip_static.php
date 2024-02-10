@@ -126,17 +126,9 @@ h5{
 //}
 ?>
     <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-    <script src="js/freelancer.min.js"></script>
-<script>
-function parpadear() {
-with (document.getElementById("parpadeo").style)
-visibility = (visibility == "visible") ? "hidden" : "visible";
-}
-</script>
+ 
+
 </body>
 </html>
