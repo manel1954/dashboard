@@ -244,7 +244,7 @@ h6{
 
 <form method="post" action="static_ip.php">
 
-        <input name="ip_statica" class="fuente_boton3 form-control" placeholder="Introduce Ip + Enter">
+        <input name="ip_statica" class="fuente_boton3 form-control" placeholder="Introduce Ip fija+ Enter">
             <div class="fondo_datos">Static ip: 
                 <span class="color_verde"><?php echo $static_ip;?></span>
             </div>         
@@ -252,7 +252,7 @@ h6{
 
 <form method="post" action="router_ip.php">
 
-        <input name="ip_router" class="fuente_boton3 form-control" placeholder="Introduce Ip Router + Enter">
+        <input name="ip_router" class="fuente_boton3 form-control" placeholder="Introduce Ip del Router + Enter">
             <div class="fondo_datos">ip del Router: 
                 <span class="color_verde"><?php echo $ip_router;?></span>
             </div>         
