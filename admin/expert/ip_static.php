@@ -77,10 +77,10 @@ h5{
 <!--============== CAJA LOGIN ====================================-->      
     
         <h5>CONFIGURACIÓN IP FIJA</h5>
-<div class="text_center">
+
 <form method="post" action="static_ip.php">
 
-        <input name="ip_statica" class="fuente_boton3 form-control text_center" placeholder="Introduce Ip fija + Enter">
+        <input name="ip_statica" class="fuente_boton3 form-control" placeholder="Introduce Ip fija + Enter">
             <div class="fondo_datos">Static ip: 
                 <span class="color_verde"><?php echo $static_ip;?></span>
             </div>         
@@ -99,7 +99,7 @@ h5{
     <button class="boton3" type="submit">VOLVER AL DASHBOARD</button>
 </form>
 <br>
-</div>
+
 
 <!--============== FIN CAJA LOGIN ====================== -->
 
