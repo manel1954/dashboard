@@ -79,7 +79,7 @@ h5{
                 <span class="color_verde"><?php echo $static_ip;?></span>
             </div>         
 </form>
-
+<br><br>
 <form method="post" action="router_ip.php">
 
         <input name="ip_router" class="fuente_boton3 form-control" placeholder="Introduce ip del Router  + Enter">
