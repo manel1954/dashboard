@@ -41,7 +41,7 @@ h5{
     text-align:center;
     color:#FFFFFF;
     font-size:18px;
-   text-transform: none;
+    text-transform: none;
 } 
 .fondo_datos{
     margin-top: 1px;
@@ -66,7 +66,7 @@ h5{
 .text_center {
     width: 600px;
     height: 25px;
-    text-align: center;
+    text-align:center;
     font-size: 16px;
 }
 </style>
@@ -80,7 +80,7 @@ h5{
 <div class="text_center">
 <form method="post" action="static_ip.php">
 
-        <input name="ip_statica" class="fuente_boton3 form-control" placeholder="Introduce Ip fija + Enter">
+        <input name="ip_statica" class="fuente_boton3 form-control text_center" placeholder="Introduce Ip fija + Enter">
             <div class="fondo_datos">Static ip: 
                 <span class="color_verde"><?php echo $static_ip;?></span>
             </div>         
