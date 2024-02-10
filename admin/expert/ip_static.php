@@ -57,6 +57,12 @@ h5{
     text-align: center;
     font-size: 16px;
 }
+.text_center {
+    width: 600px;
+    height: 25px;
+    text-align: center;
+    font-size: 16px;
+}
 </style>
 </head>
 <body>
@@ -65,11 +71,11 @@ h5{
 <!--============== CAJA LOGIN ====================================-->      
     
         <h5>CONFIGURACIÓN IP FIJA</h5>
-<div></div>
+<div class="text_center">
 <form method="post" action="static_ip.php">
 
         <input name="ip_statica" class="fuente_boton3 form-control" placeholder="Introduce Ip fija+ Enter">
-            <div class="fondo_datos text-center">Static ip: 
+            <div class="fondo_datos">Static ip: 
                 <span class="color_verde"><?php echo $static_ip;?></span>
             </div>         
 </form>
@@ -87,7 +93,7 @@ h5{
     <button class="btn btn-success btn-sm btn-block" type="submit">VOLVER AL DASHBOARD</button>
 </form>
 <br>
-
+</div>
 
 <!--============== FIN CAJA LOGIN ====================== -->
 
