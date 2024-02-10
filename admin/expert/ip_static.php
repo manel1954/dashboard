@@ -244,7 +244,7 @@ h6{
 
 <form method="post" action="static_ip.php">
 
-        <input name="static_ip" class="fuente_boton3 form-control" placeholder="Introduce Ip + Enter">
+        <input name="ip_statica" class="fuente_boton3 form-control" placeholder="Introduce Ip + Enter">
             <div class="fondo_datos">Static ip: 
                 <span class="color_verde"><?php echo $static_ip;?></span>
             </div>         
