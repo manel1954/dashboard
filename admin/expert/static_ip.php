@@ -9,5 +9,5 @@ exec("sudo sed -i '44c interface eth0' /etc/dhcpcd.conf");
 
 exec("sudo sed -i '45c $statica_ip' /etc/dhcpcd.conf");
 
-//header("Location:index.php");	
+header("Location:ip_static.php");	
 ?>
