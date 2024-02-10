@@ -24,12 +24,10 @@ $ip_router = exec("sudo sed -n '47p' /etc/dhcpcd.conf");
 
     
     
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
 <style type="text/css">
     body{
-background-image: url(img/fondo_02.png);
+background:#000;
     }
 .sistema{
     height: 50px;
