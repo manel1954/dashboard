@@ -74,16 +74,16 @@ h5{
 
 <form method="post" action="static_ip.php">
 
-        <input name="ip_statica" class="fuente_boton3 form-control" placeholder="Introduce Ip fija + Enter">
-            <div class="fondo_datos">Static ip: 
+        <input name="ip_statica" class="fuente_boton3 form-control" placeholder="Introduce ip fija + Enter">
+            <div class="fondo_datos">static ip: 
                 <span class="color_verde"><?php echo $static_ip;?></span>
             </div>         
 </form>
 <br><br>
 <form method="post" action="router_ip.php">
 
-        <input name="ip_router" class="fuente_boton3 form-control" placeholder="Introduce ip del Router  + Enter">
-            <div class="fondo_datos">ip del Router: 
+        <input name="ip_router" class="fuente_boton3 form-control" placeholder="Introduce ip del router  + Enter">
+            <div class="fondo_datos">static router: 
                 <span class="color_verde"><?php echo $ip_router;?></span>
             </div>         
 </form>
