@@ -62,5 +62,11 @@ background:#000;
 
 <!--============== FIN CAJA LOGIN ====================== -->
 </div><!-- container -->
+
+    <!-- jQuery -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
 </body>
 </html>
