@@ -65,7 +65,7 @@ h5{
     <!-- Navigation -->
 
 
-<div class="container"> 
+
 <br><br><br>
 <!--============== CAJA LOGIN ====================================-->      
     
@@ -112,6 +112,6 @@ h5{
 
 
 <!--============== FIN CAJA LOGIN ====================== -->
-</div><!-- container -->
+
 </body>
 </html>
