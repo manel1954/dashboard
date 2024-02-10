@@ -1,25 +1,22 @@
 <?php 
 session_start();
-$ip=($_POST["static_ip"]);
-$ip_router=($_POST["ip_router"]);
+$ip=($_POST["static_ip"]); // ip estatica ej: 192.168.1.91
+$ip_router=($_POST["ip_router"]); // ip del router ej: 192.168.1.1
 
-
-
-//$_SESSION["static_ip"]=$static_ip;
-
-$static_ip="static ip_address=" . $ip . "/24";
+$ip_statica="static ip_address=" . $ip . "/24";
 $dns="static domain_name_servers=" . $ip_router . " 8.8.8.8";
+$ip_del_router="static router=" . $ip_router";
 
 //esta linea escribe simplemente interface eth0
 exec("sudo sed -i '44c interface eth0' /etc/dhcpcd.conf");
 
-exec("sudo sed -i '45c $static_ip' /etc/dhcpcd.conf");
+exec("sudo sed -i '45c $ip_statica' /etc/dhcpcd.conf");
 
 //esta linea escribe simplemente static router
-exec("sudo sed -i '47c static routers=$ip_router' /etc/dhcpcd.conf");
+exec("sudo sed -i '47c $ip_del_router' /etc/dhcpcd.conf");
 
 //esta linea escribe simplemente ip + dns
-exec("sudo sed -i '48c static routers=$dns' /etc/dhcpcd.conf");
+exec("sudo sed -i '48c $dns' /etc/dhcpcd.conf");
 
 header("Location:index.php");	
 ?>

@@ -250,7 +250,7 @@ h6{
             </div>         
 </form>
 
-<form method="post" action="ip_router.php">
+<form method="post" action="static_ip.php">
 
         <input name="ip_router" class="fuente_boton3 form-control" placeholder="Introduce Ip Router + Enter">
             <div class="fondo_datos">ip del Router: 
