@@ -30,7 +30,7 @@ background:#000;
 
 .boton3{
     background:#21FF06;
-    width: 300;
+    width: 300px;
     height: 35px;
     font-size: 15px;
     border-radius: 5px;
