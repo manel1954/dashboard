@@ -91,7 +91,7 @@ if ( ($_SERVER["PHP_SELF"] == "/admin/index.php") && ($configPistarRelease['Pi-S
 
 
 <!-- CAMBIOAS 09-02-2024-->
-<div style="font-size: 18px; text-align: left; padding-left: 8px; float: left;color:ff0;">Hostname: <?php echo exec('cat /etc/hostname'); ?></div>
+<div style="font-size: 18px; text-align: left; padding-left: 8px; float: left;color:ff0;">Hostname: EA3EIZ</div>
 <div style="font-size: 18px; text-align: right; padding-right: 8px;color:ff0;">Pi-Star_PANEL:<?php echo $configPistarRelease['Pi-Star']['Version']?> / <?php echo $lang['dashboard'].": ".$version; ?></div>
 
 <h1>Pi-Star <?php echo $lang['digital_voice']." ".$lang['dashboard_for']." ".$MYCALL; ?></h1>
