@@ -28,9 +28,10 @@ background:#000;
     color:#21FF06;
     }     
 
-.fuente_boton3{
-    font-size:20px;
-    color:#f00000;
+.boton3{
+    width: 200;
+    height: 35px;
+    font-size: 15px;
     }
 h5{
     text-align:center;
@@ -90,7 +91,7 @@ h5{
 
 <br>
 <form method="post" action="../../index.php">
-    <button class="btn btn-success btn-sm btn-block" type="submit">VOLVER AL DASHBOARD</button>
+    <button class="boton3" type="submit">VOLVER AL DASHBOARD</button>
 </form>
 <br>
 </div>
