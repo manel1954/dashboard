@@ -5,7 +5,7 @@ $ip_router=($_POST["ip_router"]); // ip del router ej: 192.168.1.1
 
 $ip_statica="static ip_address=" . $ip . "/24";
 $dns="static domain_name_servers=" . $ip_router . " 8.8.8.8";
-$ip_del_router="static router=" . $ip_router";
+$ip_del_router="static router=" . $ip_router;
 
 //esta linea escribe simplemente interface eth0
 exec("sudo sed -i '44c interface eth0' /etc/dhcpcd.conf");
