@@ -35,6 +35,7 @@ background:#000;
     font-size: 15px;
     border-radius: 5px;
     border:1px transparent;
+    cursor: pointer;
     }
 h5{
     text-align:center;
