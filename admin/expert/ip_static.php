@@ -30,7 +30,7 @@ background:#000;
 
 .boton3{
     background:#21FF06;
-    width: 200;
+    width: 300;
     height: 35px;
     font-size: 15px;
     border-radius: 5px;
@@ -62,12 +62,6 @@ h5{
     text-align: center;
     font-size: 16px;
     border-radius: 5px 5px 5px 5px;
-}
-.text_center {
-    width: 600px;
-    height: 25px;
-    text-align:center;
-    font-size: 16px;
 }
 </style>
 </head>
