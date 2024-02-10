@@ -33,6 +33,7 @@ background:#000;
     width: 200;
     height: 35px;
     font-size: 15px;
+    border-radius: 5px;
     }
 h5{
     text-align:center;
