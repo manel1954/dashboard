@@ -38,7 +38,7 @@ background:#000;
     cursor: pointer;
     }
 h5{
-    text-align:center;
+
     color:#FFFFFF;
     font-size:18px;
     text-transform: none;
