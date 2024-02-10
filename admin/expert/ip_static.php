@@ -61,6 +61,7 @@ h5{
     height: 25px;
     text-align: center;
     font-size: 16px;
+    border-radius: 5px 5px 5px 5px;
 }
 .text_center {
     width: 600px;
